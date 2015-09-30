@@ -7,6 +7,6 @@ namespace CupcakeriaOnline.Repository
 {
     public class ClienteRepository
     {
-        teste
+        //teste
     }
 }
