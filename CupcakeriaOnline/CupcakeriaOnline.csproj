@@ -174,6 +174,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ClienteRepository.cs" />
     <Compile Include="Repository\EnderecoRepository.cs" />
+    <Compile Include="Models\Item_PedidoModels.cs" />
+    <Compile Include="Models\PedidoModels.cs" />
+    <Compile Include="Repository\Item_PedidoRepository.cs" />
+    <Compile Include="Repository\PedidoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

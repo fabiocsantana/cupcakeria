@@ -49,8 +49,6 @@ namespace CupcakeriaOnline.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
-
-            /*teste andré*/
         }
     }
 }
