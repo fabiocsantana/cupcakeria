@@ -14,32 +14,50 @@ namespace CupcakeriaOnline.Models
     public class EnderecoModels
     {
         [Table("Endereco")]
-        public class EnderecoCliente
+        public class Endereco
         {
             [Key]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-            public int EnderecoId { get; set; }
-            
+            public int pk_idEndereco { get; set; }
+
             public int ClienteId { get; set; }
 
             [Required(ErrorMessage = "CEP obrigatório")]
             [StringLength(8)]
             [DisplayFormat(DataFormatString = "{0:#####-###}")]
             [DisplayName("CEP")]
-            public string EnderecoCep { get; set; }
+            public string cepEndereco { get; set; }
 
             [Required(ErrorMessage = "Logradouro obrigatório")]
             [DisplayName("Logradouro")]
-            public string EnderecoLogr { get; set; }
+            public string logrEndereco { get; set; }
 
             [DisplayName("Nº")]
-            public double EnderecoNum { get; set; }
+            public double numEndereco { get; set; }
 
             [DisplayName("Complemento")]
-            public string EnderecoCompl { get; set; }
+            public string complEndereco { get; set; }
 
-            [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-            public DateTime EnderecoDtCad { get; set; }
+            [DisplayName("Bairro")]
+            public string bairroEndereco { get; set; }
+
+            [DisplayName("Complemento")]
+            public string cidEndereco { get; set; }
         }
+    }
+
+    public class EnderecoContext : DbContext
+    {
+        public EnderecoContext()
+            : base("name=EnderecoContext")
+        {
+
+            Database.Connection.ConnectionString =
+
+                @"Data Source=LAB03-08;Initial Catalog=Alunos;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+
+        }
+
+        public DbSet<Endereco> Endereco { get; set; }
     }
 }
