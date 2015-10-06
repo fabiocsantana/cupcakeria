@@ -12,7 +12,7 @@ using System.Web.Mvc;
 namespace CupcakeriaOnline.Models
 {
         [Table("Cliente")]
-        public class Cliente
+        public class Clientes
         {
             [Key]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
