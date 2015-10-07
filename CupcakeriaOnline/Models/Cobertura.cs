@@ -11,11 +11,11 @@ using System.ComponentModel;
 
 namespace CupcakeriaOnline.Models
 {
-    public class CoberturaModel
+    [Table("Cobertura")]
+    public class Cobertura
     {
-        [Table("Cobertura")]
-        public class CoberturaCupcake
-        {
+            
+
             [Key]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int pk_idCobertura { get; set; }
@@ -38,19 +38,6 @@ namespace CupcakeriaOnline.Models
             
 
         }
-        public class CoberturaContext : DbContext
-        {
-            public CoberturaContext()
-                : base("name=CoberturaContext")
-            {
-
-                Database.Connection.ConnectionString =
-
-                    @"Data Source=LAB03-08;Initial Catalog=Alunos;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
-
-            }
-
-            public DbSet<CoberturaCupcake> Coberturas { get; set; }
-        }
-    }
+        
+    
 }
