@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
+using System.Data.EntityModel.SchemaObjectModel;
 using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
 using System.Web.Mvc;
-using System.Linq;
-using System.ComponentModel;
 
 namespace CupcakeriaOnline.Models
 {
-    public class ClienteModels
-    {
         [Table("Cliente")]
         public class Cliente
         {
@@ -41,20 +39,4 @@ namespace CupcakeriaOnline.Models
             [DisplayName("Email")]
             public string emailCliente { get; set; }
         }
-
-        public class ClienteContext : DbContext
-        {
-            public ClienteContext()
-                : base("name=ClienteContext")
-            {
-
-                Database.Connection.ConnectionString =
-
-                    @"Data Source=LAB03-08;Initial Catalog=Alunos;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
-
-            }
-
-            public DbSet<Cliente> Cliente { get; set; }
-        }
-    }
 }

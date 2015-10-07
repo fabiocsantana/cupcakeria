@@ -11,8 +11,6 @@ using System.ComponentModel;
 
 namespace CupcakeriaOnline.Models
 {
-    public class EnderecoModels
-    {
         [Table("Endereco")]
         public class Endereco
         {
@@ -20,7 +18,8 @@ namespace CupcakeriaOnline.Models
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int pk_idEndereco { get; set; }
 
-            public int ClienteId { get; set; }
+            [ForeignKey("pk_idCliente")]           
+            public int fk_idCliente { get; set; }
 
             [Required(ErrorMessage = "CEP obrigatório")]
             [StringLength(8)]
@@ -38,26 +37,13 @@ namespace CupcakeriaOnline.Models
             [DisplayName("Complemento")]
             public string complEndereco { get; set; }
 
+            [Required(ErrorMessage = "Bairro obrigatório")]
             [DisplayName("Bairro")]
             public string bairroEndereco { get; set; }
 
-            [DisplayName("Complemento")]
+            [Required(ErrorMessage = "Cidade obrigatória")]
+            [DisplayName("Cidade")]
             public string cidEndereco { get; set; }
         }
-    }
 
-    public class EnderecoContext : DbContext
-    {
-        public EnderecoContext()
-            : base("name=EnderecoContext")
-        {
-
-            Database.Connection.ConnectionString =
-
-                @"Data Source=LAB03-08;Initial Catalog=Alunos;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
-
-        }
-
-        public DbSet<Endereco> Endereco { get; set; }
-    }
 }
