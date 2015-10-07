@@ -45,5 +45,19 @@ namespace CupcakeriaOnline.Models
             [DisplayName("Cidade")]
             public string cidEndereco { get; set; }
         }
+    
+    public class EnderecoContext : DbContext
+        {
+            public EnderecoContext()
+                : base("name=EnderecoContext")
+            {
 
+                Database.Connection.ConnectionString =
+
+                    @"Data Source=LAB03-08;Initial Catalog=Alunos;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+
+            }
+
+            public DbSet<Endereco> Enderecos { get; set; }
+        }
 }
