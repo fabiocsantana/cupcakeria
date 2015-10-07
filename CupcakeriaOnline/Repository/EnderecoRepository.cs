@@ -2,30 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using CupcakeriaOnline.Models;
 
 namespace CupcakeriaOnline.Repository
 {
     public class EnderecoRepository
     {
-        private EnderecoModels.EnderecoContext context = new EnderecoModels.EnderecoContext();
+        private EnderecoContext context = new EnderecoContext();
 
         public void Salva()
         {
             context.SaveChanges();
         }
 
-        public void Adiciona(EnderecoModels.Endereco endereco)
+        public void Adiciona(Endereco endereco)
         {
             context.Endereco.Add(endereco);
         }
 
         public void Remove(int id)
         {
-            EnderecoModels.Endereco endereco = context.Endereco.Find(id);
+            Endereco endereco = context.Endereco.Find(id);
             context.Endereco.Remove(endereco);
         }
 
-        public EnderecoModels.Endereco Busca(int id)
+        public Endereco Busca(int id)
         {
             return context.Endereco.Find(id);
         }

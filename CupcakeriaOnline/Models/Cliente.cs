@@ -50,6 +50,6 @@ namespace CupcakeriaOnline.Models
 
             }
 
-            public DbSet<Cliente> Clientes { get; set; }
+            public DbSet<Cliente> Cliente { get; set; }
         }
 }

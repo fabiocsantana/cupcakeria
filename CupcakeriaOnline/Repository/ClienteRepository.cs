@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CupcakeriaOnline.Models;
+using System.Data.Entity;
 
 namespace CupcakeriaOnline.Repository
 {    public class ClienteRepository
     {
-        //private ClienteModels.ClienteContext context = new ClienteModels.ClienteContext();
+    private ClienteContext context = new ClienteContext();
 
         public void Salva()
         {

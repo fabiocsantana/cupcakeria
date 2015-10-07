@@ -58,6 +58,6 @@ namespace CupcakeriaOnline.Models
 
             }
 
-            public DbSet<Endereco> Enderecos { get; set; }
+            public DbSet<Endereco> Endereco { get; set; }
         }
 }
