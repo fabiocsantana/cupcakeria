@@ -9,7 +9,8 @@ namespace CupcakeriaOnline.Repository
 {
     public class PedidoRepository
     {
-        private PedidoRepository. context = new PedidoRepository.();
+        /*
+        private C context = new PedidoRepository.();
 
         public void Salva()
         {
@@ -31,5 +32,6 @@ namespace CupcakeriaOnline.Repository
         {
             return context.Pedidos.Find(id);
         }
-    }
+         * */
+    } 
 }

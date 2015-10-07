@@ -12,7 +12,7 @@ using System.ComponentModel;
 namespace CupcakeriaOnline.Models
 {
         [Table("Endereco")]
-        public class Endereco
+        public class EnderecoModel
         {
             [Key]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
@@ -58,6 +58,6 @@ namespace CupcakeriaOnline.Models
 
             }
 
-            public DbSet<Endereco> Endereco { get; set; }
+            public DbSet<EnderecoModel> Endereco { get; set; }
         }
 }
