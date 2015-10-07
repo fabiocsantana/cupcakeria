@@ -38,19 +38,6 @@ namespace CupcakeriaOnline.Models
             
 
         }
-        public class CoberturaContext : DbContext
-        {
-            public CoberturaContext()
-                : base("name=CoberturaContext")
-            {
-
-                Database.Connection.ConnectionString =
-
-                    @"Data Source=LAB03-08;Initial Catalog=Alunos;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
-
-            }
-
-            public DbSet<CoberturaCupcake> Coberturas { get; set; }
-        }
+        
     }
 }

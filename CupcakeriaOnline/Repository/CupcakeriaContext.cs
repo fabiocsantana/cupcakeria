@@ -7,6 +7,10 @@ namespace CupcakeriaOnline.Repository
 {
     public class CupcakeriaContext
     {
-
+        public class Context { }
+        public class CupcakeriaContext : DbContext
+        {
+          
+        }
     }
 }
