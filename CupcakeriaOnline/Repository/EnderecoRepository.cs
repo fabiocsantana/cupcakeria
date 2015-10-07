@@ -15,18 +15,18 @@ namespace CupcakeriaOnline.Repository
             context.SaveChanges();
         }
 
-        public void Adiciona(Endereco endereco)
+        public void Adiciona(EnderecoModel endereco)
         {
             context.Endereco.Add(endereco);
         }
 
         public void Remove(int id)
         {
-            Endereco endereco = context.Endereco.Find(id);
+            EnderecoModel endereco = context.Endereco.Find(id);
             context.Endereco.Remove(endereco);
         }
 
-        public Endereco Busca(int id)
+        public EnderecoModel Busca(int id)
         {
             return context.Endereco.Find(id);
         }
