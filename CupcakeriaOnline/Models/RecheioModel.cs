@@ -12,7 +12,7 @@ using System.ComponentModel;
 namespace CupcakeriaOnline.Models
 {
     [Table("Recheio")]
-    public class Recheio
+    public class RecheioModel
     {
             [Key]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]

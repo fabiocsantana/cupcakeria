@@ -12,7 +12,7 @@ using System.ComponentModel;
 namespace CupcakeriaOnline.Models
 {
     [Table("Cobertura")]
-    public class Cobertura
+    public class CoberturaModel
     {
             
 
