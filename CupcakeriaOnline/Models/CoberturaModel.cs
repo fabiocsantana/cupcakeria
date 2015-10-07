@@ -11,11 +11,11 @@ using System.ComponentModel;
 
 namespace CupcakeriaOnline.Models
 {
+    [Table("Cobertura")]
     public class CoberturaModel
     {
-        [Table("Cobertura")]
-        public class CoberturaCupcake
-        {
+            
+
             [Key]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int pk_idCobertura { get; set; }
@@ -39,5 +39,5 @@ namespace CupcakeriaOnline.Models
 
         }
         
-    }
+    
 }

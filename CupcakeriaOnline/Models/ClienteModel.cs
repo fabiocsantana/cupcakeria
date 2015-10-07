@@ -11,7 +11,7 @@ using System.Web.Mvc;
 namespace CupcakeriaOnline.Models
 {
         [Table("Cliente")]
-        public class Cliente
+    public class ClienteModel
         {
             [Key]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
@@ -50,6 +50,6 @@ namespace CupcakeriaOnline.Models
 
             }
 
-            public DbSet<Cliente> Cliente { get; set; }
+            public DbSet<ClienteModel> Cliente { get; set; }
         }
 }

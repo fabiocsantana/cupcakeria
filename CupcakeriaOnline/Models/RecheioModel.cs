@@ -11,11 +11,9 @@ using System.ComponentModel;
 
 namespace CupcakeriaOnline.Models
 {
+    [Table("Recheio")]
     public class RecheioModel
     {
-        [Table("Recheio")]
-        public class RecheioCupcake
-        {
             [Key]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int pk_idRecheio { get; set; }
@@ -36,22 +34,4 @@ namespace CupcakeriaOnline.Models
             public bool dispRecheio { get; set; }
 
         }
-
-        public class RecheioContext : DbContext
-        {
-            public RecheioContext()
-                : base("name=RecheioContext")
-            {
-
-                //mudar string!!
-                Database.Connection.ConnectionString =
-
-                    @"Data Source=LAB03-08;Initial Catalog=Alunos;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
-
-            }
-
-            public DbSet<RecheioCupcake> Recheios { get; set; }
-        }
-
-    }
 }
