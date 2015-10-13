@@ -8,7 +8,7 @@ namespace CupcakeriaOnline.Repository
 {
     public class EnderecoRepository
     {
-        private EnderecoContext context = new EnderecoContext();
+        private CupcakeriaContext context = new CupcakeriaContext();
 
         public void Salva()
         {
