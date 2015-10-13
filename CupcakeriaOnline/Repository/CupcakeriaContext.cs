@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using CupcakeriaOnline.Models;
 
 namespace CupcakeriaOnline.Repository
 {
@@ -16,7 +17,7 @@ namespace CupcakeriaOnline.Repository
 
         } 
 
-        //public DbSet<Aluno> Alunos { get; set; }
-        //public DbSet<Turmas> Turmas { get; set; }
+        public DbSet<CoberturaModel> Coberturas { get; set; }
+        public DbSet<RecheioModel> Recheios { get; set; }
     }
 }
