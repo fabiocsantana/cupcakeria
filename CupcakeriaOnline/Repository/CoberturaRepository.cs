@@ -8,25 +8,25 @@ namespace CupcakeriaOnline.Repository
 {
     public class CoberturaRepository
     {
-        private CoberturaModel.CoberturaContext context = new CoberturaModel.CoberturaContext();
+        private CupcakeriaContext context = new CupcakeriaContext();
 
         public void Salva()
         {
             context.SaveChanges();
         }
 
-        public void Adiciona(CoberturaModel.CoberturaCupcake cobertura)
+        public void Adiciona(CoberturaModel cobertura)
         {
             context.Coberturas.Add(cobertura);
         }
 
         public void Remove(int id)
         {
-            CoberturaModel.CoberturaCupcake recheio = context.Coberturas.Find(id);
-            context.Coberturas.Remove(recheio);
+            CoberturaModel cobertura = context.Coberturas.Find(id);
+            context.Coberturas.Remove(cobertura);
         }
 
-        public CoberturaModel.CoberturaCupcake Busca(int id)
+        public CoberturaModel Busca(int id)
         {
             return context.Coberturas.Find(id);
         }
