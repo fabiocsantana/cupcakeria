@@ -9,29 +9,28 @@ namespace CupcakeriaOnline.Repository
 {
     public class PedidoRepository
     {
-        /*
-        private C context = new PedidoRepository.();
+        private CupcakeriaContext context = new CupcakeriaContext();
 
         public void Salva()
         {
             context.SaveChanges();
         }
 
-        public void Adiciona(PedidoModel.PedidoCupcake pedido)
+        public void Adiciona(PedidoModel itempedido)
         {
-            context.Pedidos.Add(pedido);
+            context.Pedidos.Add(itempedido);
         }
 
         public void Remove(int id)
         {
-            PedidoModel.PedidoCupcake pedido = context.Pedidos.Find(id);
-            context.Pedidos.Remove(pedido);
+            PedidoModel itempedido = context.Pedidos.Find(id);
+            context.Pedidos.Remove(itempedido);
         }
 
-        public PedidoModel.PedidoCupcake Busca(int id)
+        public PedidoModel Busca(int id)
         {
             return context.Pedidos.Find(id);
         }
-         * */
+         
     } 
 }
