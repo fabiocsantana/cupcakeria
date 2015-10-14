@@ -169,13 +169,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\ClienteModels.cs" />
-    <Compile Include="Models\EnderecoModels.cs" />
+    <Compile Include="Models\ClienteModel.cs" />
+    <Compile Include="Models\CoberturaModel.cs" />
+    <Compile Include="Models\EnderecoModel.cs" />
+    <Compile Include="Models\Item_PedidoModel.cs" />
+    <Compile Include="Models\PedidoModel.cs" />
+    <Compile Include="Models\RecheioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ClienteRepository.cs" />
     <Compile Include="Repository\EnderecoRepository.cs" />
-    <Compile Include="Models\Item_PedidoModels.cs" />
-    <Compile Include="Models\PedidoModels.cs" />
     <Compile Include="Repository\Item_PedidoRepository.cs" />
     <Compile Include="Repository\PedidoRepository.cs" />
   </ItemGroup>
