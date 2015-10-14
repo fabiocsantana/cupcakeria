@@ -18,8 +18,9 @@ namespace CupcakeriaOnline.Models
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int pk_idEndereco { get; set; }
 
-            [ForeignKey("pk_idCliente")]           
             public int fk_idCliente { get; set; }
+            [ForeignKey("fk_idCliente")]
+            public virtual ClienteModel Cliente { get; set; }
 
             [Required(ErrorMessage = "CEP obrigatório")]
             [StringLength(8)]
