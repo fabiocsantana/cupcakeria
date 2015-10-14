@@ -1,0 +1,43 @@
+﻿@model CupcakeriaOnline.Models.CoberturaModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CoberturaModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.valorUnitCobertura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.valorUnitCobertura)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descrCobertura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descrCobertura)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dtCadastroCobertura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dtCadastroCobertura)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dispCobertura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dispCobertura)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idCobertura }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

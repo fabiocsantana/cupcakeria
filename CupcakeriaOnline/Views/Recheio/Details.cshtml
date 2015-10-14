@@ -1,0 +1,43 @@
+﻿@model CupcakeriaOnline.Models.RecheioModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>RecheioModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.valorUnitRecheio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.valorUnitRecheio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descrRecheio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descrRecheio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dtCadastroRecheio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dtCadastroRecheio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dispRecheio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dispRecheio)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idRecheio }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

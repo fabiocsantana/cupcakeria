@@ -1,0 +1,62 @@
+﻿@model CupcakeriaOnline.Models.CoberturaModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CoberturaModel</legend>
+
+        @Html.HiddenFor(model => model.pk_idCobertura)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.valorUnitCobertura)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.valorUnitCobertura)
+            @Html.ValidationMessageFor(model => model.valorUnitCobertura)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descrCobertura)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.descrCobertura)
+            @Html.ValidationMessageFor(model => model.descrCobertura)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.dtCadastroCobertura)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.dtCadastroCobertura)
+            @Html.ValidationMessageFor(model => model.dtCadastroCobertura)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.dispCobertura)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.dispCobertura)
+            @Html.ValidationMessageFor(model => model.dispCobertura)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
