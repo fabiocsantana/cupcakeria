@@ -238,6 +238,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Documentos\EF_Data_Annotations.pdf" />
+    <Content Include="Documentos\modelo.xlsx" />
+    <Content Include="Documentos\Projeto2015_02.pdf" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
