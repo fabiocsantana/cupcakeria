@@ -175,6 +175,7 @@
     <Compile Include="Models\CoberturaModel.cs" />
     <Compile Include="Models\EnderecoModel.cs" />
     <Compile Include="Models\Item_PedidoModel.cs" />
+    <Compile Include="Models\MassaModel.cs" />
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Models\RecheioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
