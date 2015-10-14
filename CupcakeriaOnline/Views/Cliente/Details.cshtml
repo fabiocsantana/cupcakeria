@@ -1,0 +1,43 @@
+﻿@model CupcakeriaOnline.Models.ClienteModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ClienteModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nomeCliente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nomeCliente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dataNascCliente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dataNascCliente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.telCliente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.telCliente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.emailCliente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.emailCliente)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idCliente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

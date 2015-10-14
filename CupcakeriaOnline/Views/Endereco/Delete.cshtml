@@ -1,0 +1,68 @@
+﻿@model CupcakeriaOnline.Models.EnderecoModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>EnderecoModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cliente.nomeCliente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cliente.nomeCliente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cepEndereco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cepEndereco)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.logrEndereco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.logrEndereco)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.numEndereco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.numEndereco)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.complEndereco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.complEndereco)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.bairroEndereco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.bairroEndereco)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cidEndereco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cidEndereco)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

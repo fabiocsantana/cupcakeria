@@ -1,0 +1,86 @@
+﻿@model CupcakeriaOnline.Models.EnderecoModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>EnderecoModel</legend>
+
+        @Html.HiddenFor(model => model.pk_idEndereco)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fk_idCliente, "Cliente")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("fk_idCliente", String.Empty)
+            @Html.ValidationMessageFor(model => model.fk_idCliente)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cepEndereco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cepEndereco)
+            @Html.ValidationMessageFor(model => model.cepEndereco)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.logrEndereco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.logrEndereco)
+            @Html.ValidationMessageFor(model => model.logrEndereco)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.numEndereco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.numEndereco)
+            @Html.ValidationMessageFor(model => model.numEndereco)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.complEndereco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.complEndereco)
+            @Html.ValidationMessageFor(model => model.complEndereco)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.bairroEndereco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.bairroEndereco)
+            @Html.ValidationMessageFor(model => model.bairroEndereco)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cidEndereco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cidEndereco)
+            @Html.ValidationMessageFor(model => model.cidEndereco)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

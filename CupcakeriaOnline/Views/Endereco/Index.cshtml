@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CupcakeriaOnline.Models.EnderecoModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.nomeCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cepEndereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.logrEndereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numEndereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.complEndereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bairroEndereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cidEndereco)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.nomeCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cepEndereco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.logrEndereco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numEndereco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.complEndereco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bairroEndereco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cidEndereco)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.pk_idEndereco }) |
+            @Html.ActionLink("Details", "Details", new { id=item.pk_idEndereco }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.pk_idEndereco })
+        </td>
+    </tr>
+}
+
+</table>

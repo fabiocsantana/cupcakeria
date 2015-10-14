@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CupcakeriaOnline.Models.ClienteModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomeCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataNascCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emailCliente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomeCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataNascCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emailCliente)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.pk_idCliente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.pk_idCliente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.pk_idCliente })
+        </td>
+    </tr>
+}
+
+</table>
