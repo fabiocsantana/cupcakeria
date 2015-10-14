@@ -164,6 +164,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Item_PedidoController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -177,9 +179,12 @@
     <Compile Include="Models\RecheioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ClienteRepository.cs" />
+    <Compile Include="Repository\CoberturaRepository.cs" />
+    <Compile Include="Repository\CupcakeriaContext.cs" />
     <Compile Include="Repository\EnderecoRepository.cs" />
     <Compile Include="Repository\Item_PedidoRepository.cs" />
     <Compile Include="Repository\PedidoRepository.cs" />
+    <Compile Include="Repository\RecheioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -238,6 +243,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Documentos\EF_Data_Annotations.pdf" />
+    <Content Include="Documentos\modelo.xlsx" />
+    <Content Include="Documentos\Projeto2015_02.pdf" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
