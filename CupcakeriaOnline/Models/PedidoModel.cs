@@ -12,7 +12,8 @@ using System.ComponentModel;
 namespace CupcakeriaOnline.Models
 {
         [Table("Pedido")]
-        public class PedidoCupcake
+
+        public class PedidoModel
         {
             [Key]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]

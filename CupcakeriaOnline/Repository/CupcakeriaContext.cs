@@ -19,5 +19,9 @@ namespace CupcakeriaOnline.Repository
 
         public DbSet<CoberturaModel> Coberturas { get; set; }
         public DbSet<RecheioModel> Recheios { get; set; }
+
+        public DbSet<Item_PedidoModel> Item_Pedidos { get; set; }
+
+        public DbSet<PedidoModel> Pedidos { get; set; }
     }
 }
