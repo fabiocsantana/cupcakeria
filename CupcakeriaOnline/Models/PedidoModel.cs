@@ -18,7 +18,7 @@ namespace CupcakeriaOnline.Models
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int pk_idPedido { get; set; }
 
-            [Key]
+            [ForeignKey("fk_idCliente")]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int fk_idCliente { get; set; }
 
