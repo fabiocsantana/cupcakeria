@@ -8,7 +8,7 @@ using System.Data.Entity;
 namespace CupcakeriaOnline.Repository
 {    public class ClienteRepository
     {
-    private ClienteContext context = new ClienteContext();
+    private CupcakeriaContext context = new CupcakeriaContext();
 
         public void Salva()
         {
