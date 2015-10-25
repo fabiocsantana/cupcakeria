@@ -6,20 +6,14 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>CoberturaModel</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.valorUnitCobertura)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.valorUnitCobertura)
-            @Html.ValidationMessageFor(model => model.valorUnitCobertura)
-        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.descrCobertura)
@@ -30,10 +24,19 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.dtCadastroCobertura)
+            @Html.LabelFor(model => model.valorUnitCobertura)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.dtCadastroCobertura)
+            @Html.EditorFor(model => model.valorUnitCobertura)
+            @Html.ValidationMessageFor(model => model.valorUnitCobertura)
+        </div>
+
+
+        <!--<div class="editor-label">
+            @Html.HiddenFor(model => model.dtCadastroCobertura)
+        </div>-->
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.dtCadastroCobertura, new { @Value = System.DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss") })
             @Html.ValidationMessageFor(model => model.dtCadastroCobertura)
         </div>
 
@@ -46,13 +49,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Criar" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {

@@ -6,7 +6,8 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -15,13 +16,7 @@
 
         @Html.HiddenFor(model => model.pk_idCobertura)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.valorUnitCobertura)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.valorUnitCobertura)
-            @Html.ValidationMessageFor(model => model.valorUnitCobertura)
-        </div>
+
 
         <div class="editor-label">
             @Html.LabelFor(model => model.descrCobertura)
@@ -32,10 +27,19 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.dtCadastroCobertura)
+            @Html.LabelFor(model => model.valorUnitCobertura)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.dtCadastroCobertura)
+            @Html.EditorFor(model => model.valorUnitCobertura)
+            @Html.ValidationMessageFor(model => model.valorUnitCobertura)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.dtCadastroCobertura)
+        </div>
+        <div class="label-field">
+            @Html.TextBoxFor(model => model.dtCadastroCobertura, new { disabled = "disabled", @readonly = "readonly" })
+            <!-- @Html.EditorFor(model => model.dtCadastroCobertura)-->
             @Html.ValidationMessageFor(model => model.dtCadastroCobertura)
         </div>
 

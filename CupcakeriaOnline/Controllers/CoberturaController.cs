@@ -12,14 +12,14 @@ namespace CupcakeriaOnline.Controllers
 {
     public class CoberturaController : Controller
     {
-        private CupcakeriaContext db = new CupcakeriaContext();
+        private CoberturaRepository db = new CoberturaRepository();
 
         //
         // GET: /Cobertura/
 
         public ActionResult Index()
         {
-            return View(db.Coberturas.ToList());
+            return View(db.context.Coberturas.ToList());
         }
 
         //
@@ -27,7 +27,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            CoberturaModel coberturamodel = db.Coberturas.Find(id);
+            CoberturaModel coberturamodel = db.Busca(id);
             if (coberturamodel == null)
             {
                 return HttpNotFound();
@@ -52,8 +52,8 @@ namespace CupcakeriaOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Coberturas.Add(coberturamodel);
-                db.SaveChanges();
+                db.Adiciona(coberturamodel);
+                db.Salva();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +65,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            CoberturaModel coberturamodel = db.Coberturas.Find(id);
+            CoberturaModel coberturamodel = db.Busca(id);
             if (coberturamodel == null)
             {
                 return HttpNotFound();
@@ -82,8 +82,8 @@ namespace CupcakeriaOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(coberturamodel).State = EntityState.Modified;
-                db.SaveChanges();
+                db.context.Entry(coberturamodel).State = EntityState.Modified;
+                db.Salva();
                 return RedirectToAction("Index");
             }
             return View(coberturamodel);
@@ -94,7 +94,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            CoberturaModel coberturamodel = db.Coberturas.Find(id);
+            CoberturaModel coberturamodel = db.Busca(id);
             if (coberturamodel == null)
             {
                 return HttpNotFound();
@@ -109,15 +109,15 @@ namespace CupcakeriaOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CoberturaModel coberturamodel = db.Coberturas.Find(id);
-            db.Coberturas.Remove(coberturamodel);
-            db.SaveChanges();
+            CoberturaModel coberturamodel = db.Busca(id);
+            db.context.Coberturas.Remove(coberturamodel);
+            db.Salva();
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            db.context.Dispose();
             base.Dispose(disposing);
         }
     }

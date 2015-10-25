@@ -14,30 +14,37 @@ namespace CupcakeriaOnline.Models
     [Table("Cobertura")]
     public class CoberturaModel
     {
-            
 
-            [Key]
-            [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-            public int pk_idCobertura { get; set; }
 
-            [Required(ErrorMessage = "Valor Unitário Obrigatório")]
-            [DisplayName("Valor Unitário")]
-            public double valorUnitCobertura { get; set; }
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int pk_idCobertura { get; set; }
 
-            [Required(ErrorMessage = "Descrição Obrigatória")]
-            [DisplayName("Descrição")]
-            public string descrCobertura { get; set; }
+        [Required(ErrorMessage = "Descrição Obrigatória")]
+        [DisplayName("Descrição")]
+        public string descrCobertura { get; set; }
 
-            [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-            public DateTime dtCadastroCobertura { get; set; }
+        [Required(ErrorMessage = "Valor Unitário Obrigatório")]
+        [DisplayName("Valor Unitário")]
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
+        public double valorUnitCobertura { get; set; }
 
-            [Required(ErrorMessage = "Disponibilidade Obrigatória")]
-            [DisplayName("Disponibilidade")]
-            public bool dispCobertura { get; set; }
+        /*[Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [DisplayName("Data do Cadastro")]
+        public DateTime dtCadastroCobertura { get; set; }*/
 
-            
+        [DataType(DataType.Date)]
+        [DisplayName("Data do Cadastro")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy hh:mm:ss}", ApplyFormatInEditMode = true)]
+        public DateTime dtCadastroCobertura { get; set; }
 
-        }
-        
-    
+        [Required(ErrorMessage = "Disponibilidade Obrigatória")]
+        [DisplayName("Disponibilidade")]
+        public bool dispCobertura { get; set; }
+
+
+
+    }
+
+
 }

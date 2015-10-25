@@ -8,7 +8,7 @@ namespace CupcakeriaOnline.Repository
 {
     public class CoberturaRepository
     {
-        private CupcakeriaContext context = new CupcakeriaContext();
+        public CupcakeriaContext context = new CupcakeriaContext();
 
         public void Salva()
         {
@@ -29,6 +29,12 @@ namespace CupcakeriaOnline.Repository
         public CoberturaModel Busca(int id)
         {
             return context.Coberturas.Find(id);
+        }
+
+        public List<CoberturaModel> Listar()
+        {
+
+            return context.Coberturas.ToList();
         }
     }
 }
