@@ -14,8 +14,6 @@ namespace CupcakeriaOnline.Models
     [Table("Cobertura")]
     public class CoberturaModel
     {
-
-
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int pk_idCobertura { get; set; }
@@ -26,23 +24,16 @@ namespace CupcakeriaOnline.Models
 
         [Required(ErrorMessage = "Valor Unitário Obrigatório")]
         [DisplayName("Valor Unitário")]
-        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
-        public double valorUnitCobertura { get; set; }
+        [DisplayFormat(DataFormatString = "{0:#,##0.00}", ApplyFormatInEditMode = true)]
+        public double? valorUnitCobertura { get; set; }
 
-        /*[Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [DataType(DataType.DateTime)]
         [DisplayName("Data do Cadastro")]
-        public DateTime dtCadastroCobertura { get; set; }*/
-
-        [DataType(DataType.Date)]
-        [DisplayName("Data do Cadastro")]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy hh:mm:ss}", ApplyFormatInEditMode = true)]
-        public DateTime dtCadastroCobertura { get; set; }
+        public DateTime? dtCadastroCobertura { get; set; }
 
         [Required(ErrorMessage = "Disponibilidade Obrigatória")]
         [DisplayName("Disponibilidade")]
         public bool dispCobertura { get; set; }
-
-
 
     }
 

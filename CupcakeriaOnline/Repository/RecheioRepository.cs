@@ -10,6 +10,11 @@ namespace CupcakeriaOnline.Repository
     {
         private CupcakeriaContext context = new CupcakeriaContext();
 
+        public CupcakeriaContext getContext()
+        {
+            return this.context;
+        }
+
         public void Salva()
         {
             context.SaveChanges();
@@ -20,9 +25,9 @@ namespace CupcakeriaOnline.Repository
             context.Recheios.Add(recheio);
         }
 
-        public void Remove(int id)
+        public void Remove(RecheioModel recheio)
         {
-            RecheioModel recheio = context.Recheios.Find(id);
+            
             context.Recheios.Remove(recheio);
         }
 

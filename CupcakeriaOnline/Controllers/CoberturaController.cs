@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using CupcakeriaOnline.Models;
 using CupcakeriaOnline.Repository;
+using System.IO;
 
 namespace CupcakeriaOnline.Controllers
 {
@@ -19,7 +20,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Index()
         {
-            return View(db.context.Coberturas.ToList());
+            return View(db.getContext().Coberturas.ToList());
         }
 
         //
@@ -82,7 +83,7 @@ namespace CupcakeriaOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.context.Entry(coberturamodel).State = EntityState.Modified;
+                db.getContext().Entry(coberturamodel).State = EntityState.Modified;
                 db.Salva();
                 return RedirectToAction("Index");
             }
@@ -110,15 +111,33 @@ namespace CupcakeriaOnline.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             CoberturaModel coberturamodel = db.Busca(id);
-            db.context.Coberturas.Remove(coberturamodel);
+            db.getContext().Coberturas.Remove(coberturamodel);
             db.Salva();
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.context.Dispose();
+            db.getContext().Dispose();
             base.Dispose(disposing);
+        }
+
+        /*[HttpPost]
+        public ActionResult Upload()
+        {
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                    file.SaveAs(path);
+                }
+            }
+
+            return RedirectToAction("UploadDocument");*/
         }
     }
 }

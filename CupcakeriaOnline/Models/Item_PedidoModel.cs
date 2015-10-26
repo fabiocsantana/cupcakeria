@@ -23,6 +23,11 @@ namespace CupcakeriaOnline.Models
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int fk_idCupcake { get; set; }
 
+          /*public int fk_idCupcake { get; set; }
+            [ForeignKey("fk_idCupcake")]
+          //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+            public virtual Cupcake_Pedido Cupcake { get; set; }*/
+
             [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
             [DisplayName("Quantidade de Cupcake")]
             public int qtdeItem { get; set; }
@@ -32,3 +37,4 @@ namespace CupcakeriaOnline.Models
             public double valorItem { get; set; }
         }
 }
+ 

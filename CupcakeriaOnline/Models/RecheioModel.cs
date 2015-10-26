@@ -18,16 +18,18 @@ namespace CupcakeriaOnline.Models
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int pk_idRecheio { get; set; }
 
-            [Required(ErrorMessage ="Valor Unitário Obrigatório")]
-            [DisplayName("Valor Unitário")]
-            public double valorUnitRecheio { get; set; }
-
             [Required(ErrorMessage = "Descrição Obrigatória")]
-            [DisplayName("Nome")]
+            [DisplayName("Descrição")]
             public string descrRecheio { get; set; }
 
-            [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-            public DateTime dtCadastroRecheio { get; set; }
+            [Required(ErrorMessage = "Valor Unitário Obrigatório")]
+            [DisplayName("Valor Unitário")]
+            [DisplayFormat(DataFormatString = "{0:#,##0.00}", ApplyFormatInEditMode = true)]
+            public double valorUnitRecheio { get; set; }
+
+            [DataType(DataType.DateTime)]
+            [DisplayName("Data do Cadastro")]
+            public DateTime? dtCadastroRecheio { get; set; }
 
             [Required(ErrorMessage ="Disponibilidade Obrigatória")]
             [DisplayName("Disponibilidade")]

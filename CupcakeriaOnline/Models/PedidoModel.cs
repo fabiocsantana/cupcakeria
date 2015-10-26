@@ -23,6 +23,10 @@ namespace CupcakeriaOnline.Models
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int fk_idCliente { get; set; }
 
+          /*public int fk_idCliente { get; set; }
+            [ForeignKey("fk_idCliente")]
+            public virtual ClienteModel Cliente { get; set; }*/
+
             [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
             [DisplayName("Status")]
             public bool statusPedido { get; set; }

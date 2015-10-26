@@ -12,6 +12,14 @@
 
     <fieldset>
         <legend>RecheioModel</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descrRecheio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.descrRecheio)
+            @Html.ValidationMessageFor(model => model.descrRecheio)
+        </div>
+
 
         <div class="editor-label">
             @Html.LabelFor(model => model.valorUnitRecheio)
@@ -21,19 +29,11 @@
             @Html.ValidationMessageFor(model => model.valorUnitRecheio)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.descrRecheio)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.descrRecheio)
-            @Html.ValidationMessageFor(model => model.descrRecheio)
-        </div>
-
-        <div class="editor-label">
+        <!--<div class="editor-label">
             @Html.LabelFor(model => model.dtCadastroRecheio)
-        </div>
+        </div>-->
         <div class="editor-field">
-            @Html.EditorFor(model => model.dtCadastroRecheio)
+            @Html.HiddenFor(model => model.dtCadastroRecheio, new { @Value = System.DateTime.Now })
             @Html.ValidationMessageFor(model => model.dtCadastroRecheio)
         </div>
 

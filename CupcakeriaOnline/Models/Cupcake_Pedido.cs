@@ -26,6 +26,21 @@ namespace CupcakeriaOnline.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int fk_idCobertura {get; set;}
 
+      /*public int fk_idMassa { get; set; }
+        [ForeignKey("fk_idMassa")]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public virtual MassaModel Massa { get; set; }
+
+        public int fk_idRecheio { get; set; }
+        [ForeignKey("fk_idRecheio")]
+        //DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public virtual RecheioModel Recheio { get; set; }
+
+        public int fk_idCobertura { get; set; }
+        [ForeignKey("fk_idCobertura")]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public virtual CoberturaModel Cobertura { get; set; }*/
+
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [DisplayName("Valor do Cupcake")]
         public double valorCupcake {get; set;}

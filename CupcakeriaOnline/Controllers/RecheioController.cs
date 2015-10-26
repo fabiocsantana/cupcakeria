@@ -12,14 +12,14 @@ namespace CupcakeriaOnline.Controllers
 {
     public class RecheioController : Controller
     {
-        private CupcakeriaContext db = new CupcakeriaContext();
+        private RecheioRepository db = new RecheioRepository();
 
         //
         // GET: /Recheio/
 
         public ActionResult Index()
         {
-            return View(db.Recheios.ToList());
+            return View(db.getContext().Recheios.ToList());
         }
 
         //
@@ -27,7 +27,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            RecheioModel recheiomodel = db.Recheios.Find(id);
+            RecheioModel recheiomodel = db.Busca(id);
             if (recheiomodel == null)
             {
                 return HttpNotFound();
@@ -52,8 +52,8 @@ namespace CupcakeriaOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Recheios.Add(recheiomodel);
-                db.SaveChanges();
+                db.Adiciona(recheiomodel);
+                db.Salva();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +65,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            RecheioModel recheiomodel = db.Recheios.Find(id);
+            RecheioModel recheiomodel = db.Busca(id);
             if (recheiomodel == null)
             {
                 return HttpNotFound();
@@ -82,8 +82,8 @@ namespace CupcakeriaOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(recheiomodel).State = EntityState.Modified;
-                db.SaveChanges();
+                db.getContext().Entry(recheiomodel).State = EntityState.Modified;
+                db.Salva();
                 return RedirectToAction("Index");
             }
             return View(recheiomodel);
@@ -94,7 +94,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            RecheioModel recheiomodel = db.Recheios.Find(id);
+            RecheioModel recheiomodel = db.Busca(id);
             if (recheiomodel == null)
             {
                 return HttpNotFound();
@@ -109,15 +109,15 @@ namespace CupcakeriaOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RecheioModel recheiomodel = db.Recheios.Find(id);
-            db.Recheios.Remove(recheiomodel);
-            db.SaveChanges();
+            RecheioModel recheiomodel = db.Busca(id);
+            db.Remove(recheiomodel);
+            db.Salva();
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            db.getContext().Dispose();
             base.Dispose(disposing);
         }
     }

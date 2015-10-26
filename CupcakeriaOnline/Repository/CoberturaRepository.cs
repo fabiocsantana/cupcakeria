@@ -8,7 +8,12 @@ namespace CupcakeriaOnline.Repository
 {
     public class CoberturaRepository
     {
-        public CupcakeriaContext context = new CupcakeriaContext();
+        private CupcakeriaContext context = new CupcakeriaContext();
+
+        public CupcakeriaContext getContext()
+        {
+            return this.context;
+        }
 
         public void Salva()
         {
