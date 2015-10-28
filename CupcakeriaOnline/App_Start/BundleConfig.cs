@@ -38,6 +38,15 @@ namespace CupcakeriaOnline
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(
+                    new ScriptBundle("~/bundles/validations_pt-br")
+                        .Include(
+                            "~/Scripts/jquery.validate.custom.pt-br*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                          "~/Scripts/jquery-{version}.js",           // jQuery itself
+                          "~/Scripts/jquery-migrate-{version}.js"));
         }
     }
 }

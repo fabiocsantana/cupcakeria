@@ -1,4 +1,4 @@
-﻿@model CupcakeriaOnline.Models.CoberturaModel
+﻿    @model CupcakeriaOnline.Models.CoberturaModel
 
 @{
     ViewBag.Title = "Create";
@@ -36,7 +36,7 @@
             @Html.HiddenFor(model => model.dtCadastroCobertura)
         </div>-->
         <div class="editor-field">
-            @Html.HiddenFor(model => model.dtCadastroCobertura, new { @Value = System.DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt") })
+            @Html.HiddenFor(model => model.dtCadastroCobertura, new { @Value = System.DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") })
             @Html.ValidationMessageFor(model => model.dtCadastroCobertura)
         </div>
 
@@ -50,7 +50,7 @@
 
         <p>
             <input type="submit" value="Criar" />
-            <input type="file" value="Upload"  />
+            
         </p>
     </fieldset>
 }
@@ -60,5 +60,11 @@
 </div>
 
 @section Scripts {
+    <!--<script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/jqueryval")"></script>
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/validations_pt-br")"></script>-->
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/validations_pt-br")
+    
 }

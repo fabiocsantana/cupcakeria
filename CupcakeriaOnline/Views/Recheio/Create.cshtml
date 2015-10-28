@@ -33,7 +33,7 @@
             @Html.LabelFor(model => model.dtCadastroRecheio)
         </div>-->
         <div class="editor-field">
-            @Html.HiddenFor(model => model.dtCadastroRecheio, new { @Value = System.DateTime.Now })
+            @Html.HiddenFor(model => model.dtCadastroRecheio, new { @Value = System.DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") })
             @Html.ValidationMessageFor(model => model.dtCadastroRecheio)
         </div>
 
@@ -57,4 +57,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/validations_pt-br")
 }
