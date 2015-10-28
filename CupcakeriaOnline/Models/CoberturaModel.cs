@@ -24,11 +24,12 @@ namespace CupcakeriaOnline.Models
 
         [Required(ErrorMessage = "Valor Unitário Obrigatório")]
         [DisplayName("Valor Unitário")]
-        [DisplayFormat(DataFormatString = "{0:#,##0.00}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:#,##0.00}", ApplyFormatInEditMode = true)]
         public double? valorUnitCobertura { get; set; }
 
         [DataType(DataType.DateTime)]
         [DisplayName("Data do Cadastro")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy hh:mm:ss tt}", ApplyFormatInEditMode = true)]
         public DateTime? dtCadastroCobertura { get; set; }
 
         [Required(ErrorMessage = "Disponibilidade Obrigatória")]

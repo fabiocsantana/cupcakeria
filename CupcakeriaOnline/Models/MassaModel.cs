@@ -15,7 +15,7 @@ namespace CupcakeriaOnline.Models
     [Table("Massa")]
     public class MassaModel
     {
-        [Key]
+        /*[Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int pk_idMassa { get; set; }
 
@@ -29,6 +29,24 @@ namespace CupcakeriaOnline.Models
 
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime dtCadastroMassa { get; set; }
+
+        [Required(ErrorMessage = "Disponibilidade Obrigatória")]
+        [DisplayName("Disponibilidade")]
+        public bool dispMassa { get; set; }*/
+
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int pk_idMassa { get; set; }
+
+        [Required(ErrorMessage = "Valor Unitário Obrigatório")]
+        [DisplayName("Valor Unitário")]
+        //[DisplayFormat(DataFormatString = "{0:#,##0.00}", ApplyFormatInEditMode = true)]
+        public double? valorUnitMassa { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [DisplayName("Data do Cadastro")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy hh:mm:ss tt}", ApplyFormatInEditMode = true)]
+        public DateTime? dtCadastroMassa { get; set; }
 
         [Required(ErrorMessage = "Disponibilidade Obrigatória")]
         [DisplayName("Disponibilidade")]
