@@ -35,6 +35,11 @@ namespace CupcakeriaOnline.Models
             [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
             [DisplayName("Valor do Cupcake")]
             public double valorItem { get; set; }
+
+            [DataType(DataType.Date)]
+            [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+            [DisplayName("Data do Pedido")]
+            public DateTime dataItem_Pedido { get; set; }
         }
 }
  

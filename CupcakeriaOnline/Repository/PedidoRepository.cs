@@ -31,6 +31,11 @@ namespace CupcakeriaOnline.Repository
         {
             return context.Pedidos.Find(id);
         }
+
+        public PedidoModel buscaData(int dataPedido)
+        {
+            return context.Pedidos.Find(dataPedido);
+        }
          
     } 
 }

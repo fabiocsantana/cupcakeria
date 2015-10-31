@@ -40,5 +40,10 @@ namespace CupcakeriaOnline.Models
 
             [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
             public DateTime dtEntregaPedido { get; set; }
+
+            [DataType(DataType.Date)]
+            [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+            [DisplayName("Data do Pedido")]
+            public DateTime dataPedido { get; set; }
     }
 }
