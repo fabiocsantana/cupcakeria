@@ -168,6 +168,7 @@
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Item_PedidoController.cs" />
+    <Compile Include="Controllers\MassaController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\RecheioController.cs" />
     <Compile Include="DecimalModelBinder.cs" />
@@ -328,6 +329,11 @@
     <Content Include="Views\Recheio\Details.cshtml" />
     <Content Include="Views\Recheio\Edit.cshtml" />
     <Content Include="Views\Recheio\Index.cshtml" />
+    <Content Include="Views\Massa\Index.cshtml" />
+    <Content Include="Views\Massa\Details.cshtml" />
+    <Content Include="Views\Massa\Create.cshtml" />
+    <Content Include="Views\Massa\Edit.cshtml" />
+    <Content Include="Views\Massa\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

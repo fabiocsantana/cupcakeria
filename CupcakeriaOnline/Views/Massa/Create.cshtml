@@ -1,0 +1,61 @@
+﻿@model CupcakeriaOnline.Models.MassaModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>MassaModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descrMassa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.descrMassa)
+            @Html.ValidationMessageFor(model => model.descrMassa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.valorUnitMassa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.valorUnitMassa)
+            @Html.ValidationMessageFor(model => model.valorUnitMassa)
+        </div>
+
+        <!--<div class="editor-label">
+            @Html.LabelFor(model => model.dtCadastroMassa)
+        </div>-->
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.dtCadastroMassa, new { @Value = System.DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") })
+            @Html.ValidationMessageFor(model => model.dtCadastroMassa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.dispMassa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.dispMassa)
+            @Html.ValidationMessageFor(model => model.dispMassa)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/validations_pt-br")
+}
