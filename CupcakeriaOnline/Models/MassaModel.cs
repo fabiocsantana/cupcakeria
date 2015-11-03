@@ -40,7 +40,7 @@ namespace CupcakeriaOnline.Models
 
         [Required(ErrorMessage = "Descrição Obrigatória")]
         [DisplayName("Descrição")]
-        public string descrCobertura { get; set; }
+        public string descrMassa { get; set; }
 
         [Required(ErrorMessage = "Valor Unitário Obrigatório")]
         [DisplayName("Valor Unitário")]
