@@ -13,7 +13,7 @@ namespace CupcakeriaOnline.Repository
             : base("name=CadastroContext")
         {
 
-            Database.Connection.ConnectionString =@"Data Source=LAB03-08;Initial Catalog=Alunos;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
+            Database.Connection.ConnectionString = @"Data Source=LAB03-12;Initial Catalog=DB_CUPCAKERIA;Integrated Security=True";
 
         } 
 
@@ -23,5 +23,6 @@ namespace CupcakeriaOnline.Repository
         public DbSet<PedidoModel> Pedidos { get; set; }
         public DbSet<ClienteModel> Cliente { get; set; }
         public DbSet<EnderecoModel> Endereco { get; set; }
+        public DbSet<MassaModel> Massa { get; set; }
     }
 }
