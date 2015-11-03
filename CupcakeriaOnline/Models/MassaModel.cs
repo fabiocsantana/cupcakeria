@@ -38,9 +38,12 @@ namespace CupcakeriaOnline.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int pk_idMassa { get; set; }
 
+        [Required(ErrorMessage = "Descrição Obrigatória")]
+        [DisplayName("Descrição")]
+        public string descrCobertura { get; set; }
+
         [Required(ErrorMessage = "Valor Unitário Obrigatório")]
         [DisplayName("Valor Unitário")]
-        //[DisplayFormat(DataFormatString = "{0:#,##0.00}", ApplyFormatInEditMode = true)]
         public double? valorUnitMassa { get; set; }
 
         [DataType(DataType.DateTime)]
