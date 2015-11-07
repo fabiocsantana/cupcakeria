@@ -168,8 +168,10 @@
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Item_PedidoController.cs" />
+    <Compile Include="Controllers\MassaController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\RecheioController.cs" />
+    <Compile Include="DecimalModelBinder.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -260,6 +262,7 @@
     <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.custom.pt-br.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -326,6 +329,11 @@
     <Content Include="Views\Recheio\Details.cshtml" />
     <Content Include="Views\Recheio\Edit.cshtml" />
     <Content Include="Views\Recheio\Index.cshtml" />
+    <Content Include="Views\Massa\Index.cshtml" />
+    <Content Include="Views\Massa\Details.cshtml" />
+    <Content Include="Views\Massa\Create.cshtml" />
+    <Content Include="Views\Massa\Edit.cshtml" />
+    <Content Include="Views\Massa\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

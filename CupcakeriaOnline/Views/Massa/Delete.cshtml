@@ -1,0 +1,47 @@
+﻿@model CupcakeriaOnline.Models.MassaModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>MassaModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descrMassa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descrMassa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.valorUnitMassa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.valorUnitMassa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dtCadastroMassa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dtCadastroMassa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dispMassa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dispMassa)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

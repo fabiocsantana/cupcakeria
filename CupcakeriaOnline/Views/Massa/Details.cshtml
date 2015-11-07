@@ -1,0 +1,43 @@
+﻿@model CupcakeriaOnline.Models.MassaModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MassaModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descrMassa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descrMassa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.valorUnitMassa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.valorUnitMassa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dtCadastroMassa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dtCadastroMassa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dispMassa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dispMassa)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idMassa }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
