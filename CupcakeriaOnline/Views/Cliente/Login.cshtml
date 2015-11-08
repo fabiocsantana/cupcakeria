@@ -12,6 +12,7 @@
     <div>
         <fieldset>
             <legend>Entrar</legend>
+            
             <div class="editor-label">
                 @Html.LabelFor(model => model.emailCliente)
             </div>
@@ -19,6 +20,7 @@
                 @Html.EditorFor(model => model.emailCliente)
                 @Html.ValidationMessageFor(model => model.emailCliente)
             </div>
+
             <div class="editor-label">
                 @Html.LabelFor(model => model.loginUsuSenha)
             </div>

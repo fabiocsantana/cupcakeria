@@ -158,6 +158,42 @@ namespace CupcakeriaOnline.Controllers
         [HttpPost]
         public ActionResult Registrar(Models.ClienteModel cliente)
         {
+            if (ModelState.IsValid)
+            {
+                var emailExistente = db.Cliente.FirstOrDefault(c => c.emailCliente == cliente.emailCliente);
+
+                if (emailExistente == null)
+                {
+                    using (var dbContext = new CupcakeriaContext())
+                    {
+                        var crypto = new SimpleCrypto.PBKDF2();
+
+                        var senhaCripto = crypto.Compute(cliente.loginUsuSenha);
+
+                        var sysCliente = dbContext.Cliente.Create();
+
+                        sysCliente.emailCliente = cliente.emailCliente;
+                        sysCliente.loginUsuSenha = senhaCripto;
+                        sysCliente.loginUsuSenhaCript = crypto.Salt;
+                        sysCliente.nomeCliente = cliente.nomeCliente;
+                        sysCliente.telCliente = cliente.telCliente;
+                        sysCliente.dataNascCliente = cliente.dataNascCliente;
+
+                        dbContext.Cliente.Add(sysCliente);
+                        dbContext.SaveChanges();
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Email já cadastrado");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Não foi possível efetuar o login");
+            }
             return View();
         }
 

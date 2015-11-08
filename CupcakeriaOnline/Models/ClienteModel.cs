@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace CupcakeriaOnline.Models
 {
-        [Table("Cliente")]
+    [Table("Cliente")]
     public class ClienteModel
         {
             [Key]
@@ -22,13 +22,12 @@ namespace CupcakeriaOnline.Models
             public string nomeCliente { get; set; }
 
             [Required(ErrorMessage = "Data de nascimento obrigatória")]
-            [DataType(DataType.Date)]
-            [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
             [DisplayName("Data de Nascimento")]
+            [DataType(DataType.Date)]
+            [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
             public DateTime dataNascCliente { get; set; }
 
-            [Required(ErrorMessage = "Telefone obrigatório")]
-            [StringLength(10)]
+            [StringLength(10, MinimumLength = 10)]
             [DisplayFormat(DataFormatString = "{0:##-####-####}")]
             [DisplayName("Telefone")]
             public string telCliente { get; set; }
@@ -36,10 +35,10 @@ namespace CupcakeriaOnline.Models
             [DataType(DataType.EmailAddress)]
             [Required(ErrorMessage = "Email obrigatório")]
             [DisplayName("Email")]
+            [StringLength(100)]
             public string emailCliente { get; set; }
-            
-            /*[Required]*/
-            [StringLength(20, MinimumLength = 6)]
+
+            [StringLength(200, MinimumLength = 6)]
             [DisplayName("Senha")]
             [DataType(DataType.Password)]
             public String loginUsuSenha { get; set; }
