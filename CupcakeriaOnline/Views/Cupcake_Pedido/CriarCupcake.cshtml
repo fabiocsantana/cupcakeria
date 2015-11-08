@@ -1,0 +1,45 @@
+﻿@model CupcakeriaOnline.Models.Cupcake_Pedido
+@{
+    ViewBag.Title = "CriarCupcake";
+}
+
+<h2>Criar Cupcake</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Cupcake_Pedido</legend>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fk_idMassa, "Massa")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("fk_idMassa", String.Empty)
+            @Html.ValidationMessageFor(model => model.fk_idMassa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fk_idRecheio, "Recheio")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("fk_idRecheio", String.Empty)
+            @Html.ValidationMessageFor(model => model.fk_idRecheio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fk_idCobertura, "Cobertura")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("fk_idCobertura", String.Empty)
+            @Html.ValidationMessageFor(model => model.fk_idCobertura)
+        </div>
+
+        <p>
+            <input type="submit" value="Testar" />
+        </p>
+
+    </fieldset>
+}

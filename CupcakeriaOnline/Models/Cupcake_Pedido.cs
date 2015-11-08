@@ -41,9 +41,9 @@ namespace CupcakeriaOnline.Models
         //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public virtual CoberturaModel Cobertura { get; set; }
 
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Required(ErrorMessage = "Valor do Cupcake Obrigatório")]
         [DisplayName("Valor do Cupcake")]
-        public double valorCupcake {get; set;}
+        public double? valorCupcake {get; set;}
 
     }
 }

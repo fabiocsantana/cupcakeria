@@ -41,6 +41,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SimpleCrypto, Version=26.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleCrypto.0.3.30.26\lib\SimpleCrypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -163,8 +167,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministracaoController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\CoberturaController.cs" />
+    <Compile Include="Controllers\Cupcake_PedidoController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Item_PedidoController.cs" />
@@ -176,7 +182,34 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511081548056_InitialCreate.cs" />
+    <Compile Include="Migrations\201511081548056_InitialCreate.Designer.cs">
+      <DependentUpon>201511081548056_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511081603323_ClienteSenha.cs" />
+    <Compile Include="Migrations\201511081603323_ClienteSenha.Designer.cs">
+      <DependentUpon>201511081603323_ClienteSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511081703482_ClienteSenhaCript.cs" />
+    <Compile Include="Migrations\201511081703482_ClienteSenhaCript.Designer.cs">
+      <DependentUpon>201511081703482_ClienteSenhaCript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511081830108_ClienteLogin.cs" />
+    <Compile Include="Migrations\201511081835265_ClienteLogin1.cs" />
+    <Compile Include="Migrations\201511081835265_ClienteLogin1.Designer.cs">
+      <DependentUpon>201511081835265_ClienteLogin1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511081858033_ClienteLogin2.cs" />
+    <Compile Include="Migrations\201511081858033_ClienteLogin2.Designer.cs">
+      <DependentUpon>201511081858033_ClienteLogin2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511081943320_ModelAdm.cs" />
+    <Compile Include="Migrations\201511081943320_ModelAdm.Designer.cs">
+      <DependentUpon>201511081943320_ModelAdm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AdministracaoModel.cs" />
     <Compile Include="Models\ClienteModel.cs" />
     <Compile Include="Models\CoberturaModel.cs" />
     <Compile Include="Models\Cupcake_Pedido.cs" />
@@ -334,12 +367,49 @@
     <Content Include="Views\Massa\Create.cshtml" />
     <Content Include="Views\Massa\Edit.cshtml" />
     <Content Include="Views\Massa\Delete.cshtml" />
+    <Content Include="Views\Administracao\Create.cshtml" />
+    <Content Include="Views\Administracao\Delete.cshtml" />
+    <Content Include="Views\Administracao\Details.cshtml" />
+    <Content Include="Views\Administracao\Edit.cshtml" />
+    <Content Include="Views\Administracao\Index.cshtml" />
+    <Content Include="Views\Administracao\Login.cshtml" />
+    <Content Include="Views\Cupcake_Pedido\Index.cshtml" />
+    <Content Include="Views\Cupcake_Pedido\Details.cshtml" />
+    <Content Include="Views\Cupcake_Pedido\Create.cshtml" />
+    <Content Include="Views\Cupcake_Pedido\Edit.cshtml" />
+    <Content Include="Views\Cupcake_Pedido\Delete.cshtml" />
+    <Content Include="Views\Cupcake_Pedido\CriarCupcake.cshtml" />
+    <Content Include="Views\Cupcake_Pedido\CriarCupcakeConfirmar.cshtml" />
+    <Content Include="Views\Cupcake_Pedido\Carrinho_Compras.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511081548056_InitialCreate.resx">
+      <DependentUpon>201511081548056_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511081603323_ClienteSenha.resx">
+      <DependentUpon>201511081603323_ClienteSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511081703482_ClienteSenhaCript.resx">
+      <DependentUpon>201511081703482_ClienteSenhaCript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511081830108_ClienteLogin.resx">
+      <DependentUpon>201511081830108_ClienteLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511081835265_ClienteLogin1.resx">
+      <DependentUpon>201511081835265_ClienteLogin1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511081858033_ClienteLogin2.resx">
+      <DependentUpon>201511081858033_ClienteLogin2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511081943320_ModelAdm.resx">
+      <DependentUpon>201511081943320_ModelAdm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

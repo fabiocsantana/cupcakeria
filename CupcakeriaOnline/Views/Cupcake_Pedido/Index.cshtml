@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CupcakeriaOnline.Models.Cupcake_Pedido>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Massa.descrMassa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Recheio.descrRecheio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cobertura.descrCobertura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valorCupcake)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Massa.descrMassa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recheio.descrRecheio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cobertura.descrCobertura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valorCupcake)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.pk_idCupcake }) |
+            @Html.ActionLink("Details", "Details", new { id=item.pk_idCupcake }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.pk_idCupcake })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,47 @@
+﻿@model CupcakeriaOnline.Models.Cupcake_Pedido
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Cupcake_Pedido</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Massa.descrMassa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Massa.descrMassa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Recheio.descrRecheio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Recheio.descrRecheio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cobertura.descrCobertura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cobertura.descrCobertura)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.valorCupcake)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.valorCupcake)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

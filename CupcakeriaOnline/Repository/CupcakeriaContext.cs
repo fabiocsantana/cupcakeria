@@ -30,7 +30,10 @@ namespace CupcakeriaOnline.Repository
         {
 
             Database.Connection.ConnectionString = @"<!-- INSERIR CONNECTION STRING >";
+            Database.SetInitializer<CupcakeriaContext>(null);
 
-        }     
+        }
+
+        public DbSet<Cupcake_Pedido> Cupcake_Pedido { get; set; }     
     }
 }

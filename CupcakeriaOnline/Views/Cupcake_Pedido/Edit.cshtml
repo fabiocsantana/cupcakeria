@@ -1,0 +1,62 @@
+﻿@model CupcakeriaOnline.Models.Cupcake_Pedido
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Cupcake_Pedido</legend>
+
+        @Html.HiddenFor(model => model.pk_idCupcake)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fk_idMassa, "Massa")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("fk_idMassa", String.Empty)
+            @Html.ValidationMessageFor(model => model.fk_idMassa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fk_idRecheio, "Recheio")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("fk_idRecheio", String.Empty)
+            @Html.ValidationMessageFor(model => model.fk_idRecheio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fk_idCobertura, "Cobertura")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("fk_idCobertura", String.Empty)
+            @Html.ValidationMessageFor(model => model.fk_idCobertura)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.valorCupcake)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.valorCupcake)
+            @Html.ValidationMessageFor(model => model.valorCupcake)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,30 @@
+﻿@model List<CupcakeriaOnline.Models.Cupcake_Pedido>
+
+@{
+    ViewBag.Title = "Carrinho_Compras";
+}
+
+<h2>Carrinho_Compras</h2>
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Massa.descrMassa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recheio.descrRecheio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cobertura.descrCobertura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valorCupcake)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.pk_idCupcake })
+        </td>
+    </tr>
+}
+
