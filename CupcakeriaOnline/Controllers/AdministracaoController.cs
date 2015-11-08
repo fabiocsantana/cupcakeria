@@ -120,5 +120,10 @@ namespace CupcakeriaOnline.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
     }
 }
