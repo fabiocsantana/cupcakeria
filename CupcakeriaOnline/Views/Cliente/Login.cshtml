@@ -1,0 +1,24 @@
+﻿@model CupcakeriaOnline.Models.ClienteModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Usuário e/ou senha errada")
+
+    <div>
+        <fieldset>
+            <legend>Entrar</legend>
+            <div>@Html.LabelFor(c => c.emailCliente)</div>
+            <div>@Html.TextBoxFor(c => c.emailCliente)</div>
+
+            <div>@Html.LabelFor(c => c.loginUsuSenha)</div>
+            <div>@Html.TextBoxFor(c => c.loginUsuSenha)</div>
+
+            <input type="submit" value="Entrar" />
+        </fieldset>
+    </div>
+}

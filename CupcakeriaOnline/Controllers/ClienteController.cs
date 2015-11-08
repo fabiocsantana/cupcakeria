@@ -120,5 +120,56 @@ namespace CupcakeriaOnline.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        //apenas exibe a tela de login
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        //pega as informacoes que o usuario inseriu para fazer validacao
+        [HttpPost]
+        public ActionResult Login(Models.ClienteModel cliente)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Registrar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Registrar(Models.ClienteModel cliente)
+        {
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            return View();
+        }
+
+        private bool EhValido(String email, String senha)
+        {
+            bool ehValido = false;
+
+            var crypto = new SimpleCrypto.PBKDF2();
+
+            using (var db = new CupcakeriaContext())
+            {
+                var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == email);
+
+                if(cliente != null){
+                    if(cliente.loginUsuSenha == crypto.Compute(senha, cliente.loginUsuSenhaCript)){
+                        ehValido = true;
+                    }
+                }
+            }
+
+            return ehValido;
+        }
     }
 }
