@@ -38,12 +38,12 @@ namespace CupcakeriaOnline.Models
             [StringLength(100)]
             public string emailCliente { get; set; }
 
-            [StringLength(200, MinimumLength = 6)]
+            [StringLength(4000, MinimumLength = 6)]
             [DisplayName("Senha")]
             [DataType(DataType.Password)]
             public String loginUsuSenha { get; set; }
 
-            [StringLength(200)]
-            public String loginUsuSenhaCript { get; set; }
+            [StringLength(4000)]
+            public String loginUsuSalt { get; set; }
         }
 }

@@ -133,8 +133,6 @@ namespace CupcakeriaOnline.Controllers
         [HttpPost]
         public ActionResult Login(Models.ClienteModel cliente)
         {
-            if (ModelState.IsValid)
-            {
                 if (EhValido(cliente.emailCliente, cliente.loginUsuSenha))
                 {
                     FormsAuthentication.SetAuthCookie(cliente.emailCliente, false);
@@ -144,7 +142,6 @@ namespace CupcakeriaOnline.Controllers
                 {
                     ModelState.AddModelError("", "Não foi possível efetuar o login");
                 }
-            }
 
             return View(cliente);
         }
@@ -174,7 +171,7 @@ namespace CupcakeriaOnline.Controllers
 
                         sysCliente.emailCliente = cliente.emailCliente;
                         sysCliente.loginUsuSenha = senhaCripto;
-                        sysCliente.loginUsuSenhaCript = crypto.Salt;
+                        sysCliente.loginUsuSalt = crypto.Salt;
                         sysCliente.nomeCliente = cliente.nomeCliente;
                         sysCliente.telCliente = cliente.telCliente;
                         sysCliente.dataNascCliente = cliente.dataNascCliente;
@@ -192,7 +189,7 @@ namespace CupcakeriaOnline.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Não foi possível efetuar o login");
+                ModelState.AddModelError("", "Não foi possível efetuar o cadastro");
             }
             return View();
         }
@@ -204,7 +201,7 @@ namespace CupcakeriaOnline.Controllers
 
         private bool EhValido(String email, String senha)
         {
-            bool ehValido = false;
+            bool ehValido;
 
             var crypto = new SimpleCrypto.PBKDF2();
 
@@ -212,13 +209,22 @@ namespace CupcakeriaOnline.Controllers
             {
                 var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == email);
 
+                var senhaInseridaCripto = crypto.Compute(senha, cliente.loginUsuSalt);
+
                 if(cliente != null){
-                    if(cliente.loginUsuSenha == crypto.Compute(senha, cliente.loginUsuSenhaCript)){
+                    if(cliente.loginUsuSenha == senhaInseridaCripto){
                         ehValido = true;
                     }
+                    else
+                    {
+                        ehValido = false;
+                    }
+                }
+                else
+                {
+                    ehValido = false;
                 }
             }
-
             return ehValido;
         }
     }
