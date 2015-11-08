@@ -39,8 +39,9 @@ namespace CupcakeriaOnline.Models
             public string emailCliente { get; set; }
             
             /*[Required]*/
-            [DataType(DataType.Password)]
             [StringLength(20, MinimumLength = 6)]
+            [DisplayName("Senha")]
+            [DataType(DataType.Password)]
             public String loginUsuSenha { get; set; }
 
             [StringLength(200)]

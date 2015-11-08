@@ -7,16 +7,20 @@
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(true, "Usuário e/ou senha errada")
+    @Html.ValidationSummary(true, "Usuário e/ou senha inválido(s)")
 
     <div>
         <fieldset>
             <legend>Entrar</legend>
             <div>@Html.LabelFor(c => c.emailCliente)</div>
-            <div>@Html.TextBoxFor(c => c.emailCliente)</div>
+            <div>@Html.TextBoxFor(c => c.emailCliente)
+                @Html.ValidationMessageFor(c => c.emailCliente)
+            </div>
 
             <div>@Html.LabelFor(c => c.loginUsuSenha)</div>
-            <div>@Html.TextBoxFor(c => c.loginUsuSenha)</div>
+            <div>@Html.TextBoxFor(c => c.loginUsuSenha)
+                @Html.ValidationMessageFor(c => c.emailCliente)
+            </div>
 
             <input type="submit" value="Entrar" />
         </fieldset>
