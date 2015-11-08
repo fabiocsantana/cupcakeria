@@ -37,5 +37,9 @@ namespace CupcakeriaOnline.Models
             [Required(ErrorMessage = "Email obrigatório")]
             [DisplayName("Email")]
             public string emailCliente { get; set; }
+            
+            /*[Required]*/
+            [DataType(DataType.Password)]
+            public String loginUsuSenha { get; set; }
         }
 }
