@@ -11,14 +11,18 @@ using System.Web.Mvc;
 namespace CupcakeriaOnline.Models
 {
     [Table("Administrador")]
-    public class AdministradorModel
+    public class AdministracaoModel
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int pk_idAdministrador { get; set; }
+        public int pk_idAdministracao { get; set; }
 
-        [Required(ErrorMessage = "Nome obrigatório")]
-        [DisplayName("Nome")]
-        public string nomeAdministrador { get; set; }
+        [StringLength(4000, MinimumLength = 6)]
+        [DisplayName("Senha")]
+        [DataType(DataType.Password)]
+        public String loginAdmSenha { get; set; }
+
+        [StringLength(4000)]
+        public String loginAdmSalt { get; set; }
     }
 }
