@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.Mvc;
 using CupcakeriaOnline.Models;
 using CupcakeriaOnline.Repository;
@@ -132,7 +133,20 @@ namespace CupcakeriaOnline.Controllers
         [HttpPost]
         public ActionResult Login(Models.ClienteModel cliente)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                if (EhValido(cliente.emailCliente, cliente.loginUsuSenha))
+                {
+                    FormsAuthentication.SetAuthCookie(cliente.emailCliente, false);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Não foi possível efetuar o login");
+                }
+            }
+
+            return View(cliente);
         }
 
         [HttpGet]
