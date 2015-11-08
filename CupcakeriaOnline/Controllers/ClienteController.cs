@@ -196,7 +196,9 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Logout()
         {
-            return View();
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
 
         private bool EhValido(String email, String senha)
