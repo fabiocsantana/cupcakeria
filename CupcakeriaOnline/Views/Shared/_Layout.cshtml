@@ -37,7 +37,10 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p><li>@Html.ActionLink("Área administrativa", "Contact", "Home")</li></p>
+@if (!Request.IsAuthenticated)
+{
+    <p><li>@Html.ActionLink("Área administrativa", "Contact", "Home")</li></p>
+}
                 </div>
             </div>
         </footer>

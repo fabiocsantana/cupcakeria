@@ -18,9 +18,13 @@ namespace CupcakeriaOnline.Controllers
         //
         // GET: /Cliente/
 
-        public ActionResult Index()
+        public ActionResult Index(ClienteModel cliente)
         {
-            return View(db.Cliente.ToList());
+            var sysCliente = db.Cliente.FirstOrDefault(c => c.emailCliente == cliente.emailCliente);
+            
+            return View(sysCliente);
+
+            //return View(db.Cliente.ToList());
         }
 
         //
@@ -136,7 +140,7 @@ namespace CupcakeriaOnline.Controllers
                 if (EhValido(cliente.emailCliente, cliente.loginUsuSenha))
                 {
                     FormsAuthentication.SetAuthCookie(cliente.emailCliente, false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Cliente", cliente);
                 }
                 else
                 {
