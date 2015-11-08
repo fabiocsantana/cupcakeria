@@ -1,0 +1,29 @@
+﻿@model CupcakeriaOnline.Models.AdministracaoModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>AdministracaoModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.loginAdmSenha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.loginAdmSenha)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.loginAdmSalt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.loginAdmSalt)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idAdministracao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
