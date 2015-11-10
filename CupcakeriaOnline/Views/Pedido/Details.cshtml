@@ -1,0 +1,43 @@
+﻿@model CupcakeriaOnline.Models.PedidoModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PedidoModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cliente.nomeCliente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cliente.nomeCliente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.statusPedido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.statusPedido)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.vlrTotalPedido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.vlrTotalPedido)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dataPedido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dataPedido)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idPedido }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

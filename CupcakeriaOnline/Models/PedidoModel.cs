@@ -23,27 +23,32 @@ namespace CupcakeriaOnline.Models
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             public int fk_idCliente { get; set; }*/
 
-            public int fk_idCliente { get; set; }
+            /*public int fk_idCupcake { get; set; }
+            [ForeignKey("fk_idCupcake")]
+            public virtual Cupcake_Pedido Cupcake{get; set;}*/
+
+
+            public int? fk_idCliente { get; set; }
             [ForeignKey("fk_idCliente")]
             public virtual ClienteModel Cliente { get; set; }
 
-            [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+            //[Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
             [DisplayName("Status")]
-            public bool statusPedido { get; set; }
+            public bool? statusPedido { get; set; }
 
-            [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+            //[Required(ErrorMessage="Valor Obrigatório")]
             [DisplayName("Valor Total")]
-            public double vlrTotalPedido { get; set; }
+            public double? vlrTotalPedido { get; set; }
 
-            [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-            public DateTime dtRealizadoPedido { get; set; }
+            /*[Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+            public DateTime dtRealizadoPedido { get; set; }*/
 
-            [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-            public DateTime dtEntregaPedido { get; set; }
+            /*[Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+            public DateTime dtEntregaPedido { get; set; }*/
 
-            [DataType(DataType.Date)]
-            [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+            [DataType(DataType.DateTime)]
             [DisplayName("Data do Pedido")]
-            public DateTime dataPedido { get; set; }
+            [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy hh:mm:ss tt}", ApplyFormatInEditMode = true)]
+            public DateTime? dataPedido { get; set; }
     }
 }

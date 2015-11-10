@@ -26,6 +26,11 @@ namespace CupcakeriaOnline.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int fk_idCobertura {get; set;}*/
 
+        public int fk_idPedido { get; set; }
+        [ForeignKey("fk_idPedido")]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public virtual PedidoModel Pedido { get; set; }
+
         public int fk_idMassa { get; set; }
         [ForeignKey("fk_idMassa")]
         //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
@@ -44,6 +49,14 @@ namespace CupcakeriaOnline.Models
         [Required(ErrorMessage = "Valor do Cupcake Obrigatório")]
         [DisplayName("Valor do Cupcake")]
         public double? valorCupcake {get; set;}
+
+        [Required(ErrorMessage = "Valor Total")]
+        [DisplayName("Valor do Cupcake")]
+        public double? valorTotalCupcake { get; set; }
+
+        [Required(ErrorMessage = "Quantidade Obrigatório")]
+        [DisplayName("Quantidade do Cupcake")]
+        public int qtdeItem { get; set; }
 
     }
 }

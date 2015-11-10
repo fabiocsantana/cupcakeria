@@ -211,6 +211,22 @@
     <Compile Include="Migrations\201511100155040_Rollback.Designer.cs">
       <DependentUpon>201511100155040_Rollback.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511102230343_pedido_item_pedido_fora.cs" />
+    <Compile Include="Migrations\201511102230343_pedido_item_pedido_fora.Designer.cs">
+      <DependentUpon>201511102230343_pedido_item_pedido_fora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511102238126_valortotal_pedido.cs" />
+    <Compile Include="Migrations\201511102238126_valortotal_pedido.Designer.cs">
+      <DependentUpon>201511102238126_valortotal_pedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511102252341_pedidoModel.cs" />
+    <Compile Include="Migrations\201511102252341_pedidoModel.Designer.cs">
+      <DependentUpon>201511102252341_pedidoModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511102340297_aceitaNull.cs" />
+    <Compile Include="Migrations\201511102340297_aceitaNull.Designer.cs">
+      <DependentUpon>201511102340297_aceitaNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AdministracaoModel.cs" />
@@ -389,6 +405,12 @@
     <Content Include="Views\Cupcake_Pedido\Carrinho_Compras.cshtml" />
     <Content Include="Views\Cliente\Perfil.cshtml" />
     <Content Include="Views\Cliente\AlteraPerfil.cshtml" />
+    <Content Include="Views\Pedido\Index.cshtml" />
+    <Content Include="Views\Pedido\Details.cshtml" />
+    <Content Include="Views\Pedido\Create.cshtml" />
+    <Content Include="Views\Pedido\Edit.cshtml" />
+    <Content Include="Views\Pedido\Delete.cshtml" />
+    <Content Include="Views\Pedido\IniciarPedido.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -420,6 +442,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511100155040_Rollback.resx">
       <DependentUpon>201511100155040_Rollback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511102230343_pedido_item_pedido_fora.resx">
+      <DependentUpon>201511102230343_pedido_item_pedido_fora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511102238126_valortotal_pedido.resx">
+      <DependentUpon>201511102238126_valortotal_pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511102252341_pedidoModel.resx">
+      <DependentUpon>201511102252341_pedidoModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511102340297_aceitaNull.resx">
+      <DependentUpon>201511102340297_aceitaNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

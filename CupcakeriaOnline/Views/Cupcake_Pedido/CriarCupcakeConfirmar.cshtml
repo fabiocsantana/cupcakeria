@@ -44,6 +44,23 @@
             @Html.ValidationMessageFor(model => model.valorCupcake)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.qtdeItem)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.qtdeItem, new { @Value = ViewBag.qtdeItem, @readonly = "true" })
+            @Html.ValidationMessageFor(model => model.qtdeItem)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.valorTotalCupcake)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.valorTotalCupcake, new { @Value = ViewBag.valorTotalCupcake, @readonly = "true" })
+            @Html.ValidationMessageFor(model => model.valorTotalCupcake)
+        </div>
+
+
         <p>
             <input type="submit" value="Create" />
         </p>

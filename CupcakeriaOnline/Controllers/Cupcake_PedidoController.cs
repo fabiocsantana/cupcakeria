@@ -134,7 +134,7 @@ namespace CupcakeriaOnline.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult CriarCupcake()
+        public ActionResult CriarCupcake(PedidoModel pedido)
         {
             ViewBag.fk_idMassa = new SelectList(db.Massa.Where(a => a.dispMassa.Equals(true)), "pk_idMassa", "descrMassa");
             ViewBag.fk_idRecheio = new SelectList(db.Recheios.Where(a => a.dispRecheio.Equals(true)), "pk_idRecheio", "descrRecheio");
@@ -166,10 +166,14 @@ namespace CupcakeriaOnline.Controllers
             }
             double? valorTotal = massa.valorUnitMassa + cobertura.valorUnitCobertura + recheio.valorUnitRecheio;
 
+            double? valorTotalCupcake = valorTotal * cupcake_pedido.qtdeItem;
+
             ViewBag.fk_idMassa = new SelectList(db.Massa, "pk_idMassa", "descrMassa", cupcake_pedido.fk_idMassa);
             ViewBag.fk_idRecheio = new SelectList(db.Recheios, "pk_idRecheio", "descrRecheio", cupcake_pedido.fk_idRecheio);
             ViewBag.fk_idCobertura = new SelectList(db.Coberturas, "pk_idCobertura", "descrCobertura", cupcake_pedido.fk_idCobertura);
             ViewBag.valorCupcake = Convert.ToString(valorTotal, CultureInfo.CreateSpecificCulture("pt-BR"));
+            ViewBag.qtdeItem = cupcake_pedido.qtdeItem;
+            ViewBag.valorTotalCupcake = Convert.ToString(valorTotalCupcake, CultureInfo.CreateSpecificCulture("pt-BR"));
             return View("CriarCupcakeConfirmar");
         }
 

@@ -37,6 +37,14 @@
             @Html.ValidationMessageFor(model => model.fk_idCobertura)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.qtdeItem)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.qtdeItem)
+            @Html.ValidationMessageFor(model => model.qtdeItem) 
+        </div>
+
         <p>
             <input type="submit" value="Testar" />
         </p>

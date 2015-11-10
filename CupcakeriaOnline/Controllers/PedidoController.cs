@@ -1,27 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CupcakeriaOnline.Models;
+using CupcakeriaOnline.Repository;
+using WebMatrix.WebData;
+using CupcakeriaOnline.Filters;
+using System.Web.Security;
 
 namespace CupcakeriaOnline.Controllers
 {
+    //[InitializeSimpleMembership]
     public class PedidoController : Controller
     {
+        private CupcakeriaContext db = new CupcakeriaContext();
+        public static PedidoModel Pedido;
+
         //
         // GET: /Pedido/
 
         public ActionResult Index()
         {
-            return View();
+            var pedidos = db.Pedidos.Include(p => p.Cliente);
+            return View(pedidos.ToList());
         }
 
         //
         // GET: /Pedido/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id = 0)
         {
-            return View();
+            PedidoModel pedidomodel = db.Pedidos.Find(id);
+            if (pedidomodel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pedidomodel);
         }
 
         //
@@ -29,6 +46,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.fk_idCliente = new SelectList(db.Cliente, "pk_idCliente", "nomeCliente");
             return View();
         }
 
@@ -36,70 +54,98 @@ namespace CupcakeriaOnline.Controllers
         // POST: /Pedido/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(PedidoModel pedidomodel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Pedidos.Add(pedidomodel);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ViewBag.fk_idCliente = new SelectList(db.Cliente, "pk_idCliente", "nomeCliente", pedidomodel.fk_idCliente);
+            return View(pedidomodel);
         }
 
         //
         // GET: /Pedido/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
-            return View();
+            PedidoModel pedidomodel = db.Pedidos.Find(id);
+            if (pedidomodel == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.fk_idCliente = new SelectList(db.Cliente, "pk_idCliente", "nomeCliente", pedidomodel.fk_idCliente);
+            return View(pedidomodel);
         }
 
         //
         // POST: /Pedido/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(PedidoModel pedidomodel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(pedidomodel).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            ViewBag.fk_idCliente = new SelectList(db.Cliente, "pk_idCliente", "nomeCliente", pedidomodel.fk_idCliente);
+            return View(pedidomodel);
         }
 
         //
         // GET: /Pedido/Delete/5
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id = 0)
         {
-            return View();
+            PedidoModel pedidomodel = db.Pedidos.Find(id);
+            if (pedidomodel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pedidomodel);
         }
 
         //
         // POST: /Pedido/Delete/5
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            PedidoModel pedidomodel = db.Pedidos.Find(id);
+            db.Pedidos.Remove(pedidomodel);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+        public ActionResult IniciarPedido(PedidoModel pedido)
+        {
+            var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
+            pedido.Cliente = cliente;
+
+            if (ModelState.IsValid)
             {
-                return View();
+
+
+                Pedido = pedido;
+                db.SaveChanges();
+                return RedirectToAction("CriarCupcake ", "Cupcake_Pedido");
             }
+            return View();
+        }
+
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
