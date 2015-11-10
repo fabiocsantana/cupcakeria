@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201511081943320_ModelAdm.Designer.cs">
       <DependentUpon>201511081943320_ModelAdm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511100155040_Rollback.cs" />
+    <Compile Include="Migrations\201511100155040_Rollback.Designer.cs">
+      <DependentUpon>201511100155040_Rollback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AdministracaoModel.cs" />
@@ -303,7 +307,9 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -381,6 +387,8 @@
     <Content Include="Views\Cupcake_Pedido\CriarCupcake.cshtml" />
     <Content Include="Views\Cupcake_Pedido\CriarCupcakeConfirmar.cshtml" />
     <Content Include="Views\Cupcake_Pedido\Carrinho_Compras.cshtml" />
+    <Content Include="Views\Cliente\Perfil.cshtml" />
+    <Content Include="Views\Cliente\AlteraPerfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -409,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511081943320_ModelAdm.resx">
       <DependentUpon>201511081943320_ModelAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511100155040_Rollback.resx">
+      <DependentUpon>201511100155040_Rollback.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

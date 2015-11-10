@@ -233,5 +233,15 @@ namespace CupcakeriaOnline.Controllers
             }
             return ehValido;
         }
+
+        public ActionResult Perfil()
+        {
+            return View();
+        }
+
+        public ActionResult AlteraPerfil()
+        {
+            return View();
+        }
     }
 }
