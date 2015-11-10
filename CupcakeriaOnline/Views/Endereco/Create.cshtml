@@ -4,7 +4,7 @@
     ViewBag.Title = "Novo Endereço";
 }
 
-<h2>Create</h2>
+<h2>Novo Endereço</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -61,13 +61,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Criar" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {
