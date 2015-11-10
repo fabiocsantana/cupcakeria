@@ -4,4 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Bem vindo!</h2>
+<article>
+    <p>
+        @Html.ActionLink("Novo pedido", "Novo", "Pedido")
+    </p>
+
+    <p>
+        @Html.ActionLink("Histórico de pedidos", "Historico", "Pedido")
+    </p>
+
+    <p>
+        @Html.ActionLink("Meus endereços", "Index", "Endereco")
+    </p>
+
+    <p>
+        @Html.ActionLink("Novo Endereco", "Create", "Endereco")
+    </p>
+</article>

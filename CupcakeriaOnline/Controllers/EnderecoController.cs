@@ -52,6 +52,7 @@ namespace CupcakeriaOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EnderecoModel enderecomodel)
         {
+            enderecomodel.Cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
             if (ModelState.IsValid)
             {
                 db.Endereco.Add(enderecomodel);
@@ -125,5 +126,16 @@ namespace CupcakeriaOnline.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public ActionResult MeusEnderecos()
+        {
+            var listaEndereco = db.Endereco.ToList();
+
+            var meusEnderecos = listaEndereco.Where(end => end.Cliente.emailCliente == User.Identity.Name);
+
+            return View(meusEnderecos.ToList());
+        }
+
+        
     }
 }

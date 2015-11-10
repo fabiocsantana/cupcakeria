@@ -1,7 +1,7 @@
 ﻿@model CupcakeriaOnline.Models.EnderecoModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Novo Endereço";
 }
 
 <h2>Create</h2>
@@ -12,15 +12,6 @@
 
     <fieldset>
         <legend>EnderecoModel</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.fk_idCliente, "Cliente")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("fk_idCliente", String.Empty)
-            @Html.ValidationMessageFor(model => model.fk_idCliente)
-        </div>
-
         <div class="editor-label">
             @Html.LabelFor(model => model.cepEndereco)
         </div>
