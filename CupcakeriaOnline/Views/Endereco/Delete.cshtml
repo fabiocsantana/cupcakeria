@@ -1,12 +1,12 @@
 ﻿@model CupcakeriaOnline.Models.EnderecoModel
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Excluir Endereço";
 }
 
-<h2>Delete</h2>
+<h2>Excluir Endereço</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja excluir este endereço?</h3>
 <fieldset>
     <legend>EnderecoModel</legend>
 
@@ -62,7 +62,7 @@
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Excluir" /> |
+        @Html.ActionLink("Voltar", "Index")
     </p>
 }

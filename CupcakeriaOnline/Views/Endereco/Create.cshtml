@@ -1,10 +1,10 @@
 ﻿@model CupcakeriaOnline.Models.EnderecoModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Novo Endereço";
 }
 
-<h2>Create</h2>
+<h2>Novo Endereço</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -12,15 +12,6 @@
 
     <fieldset>
         <legend>EnderecoModel</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.fk_idCliente, "Cliente")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("fk_idCliente", String.Empty)
-            @Html.ValidationMessageFor(model => model.fk_idCliente)
-        </div>
-
         <div class="editor-label">
             @Html.LabelFor(model => model.cepEndereco)
         </div>
@@ -70,13 +61,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Criar" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {

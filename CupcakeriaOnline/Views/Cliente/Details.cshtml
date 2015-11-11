@@ -1,10 +1,10 @@
 ﻿@model CupcakeriaOnline.Models.ClienteModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Meu Perfil";
 }
 
-<h2>Details</h2>
+<h2>Meu Perfil</h2>
 
 <fieldset>
     <legend>ClienteModel</legend>
@@ -38,6 +38,5 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idCliente }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar Perfil", "Edit", new { id=Model.pk_idCliente })
 </p>

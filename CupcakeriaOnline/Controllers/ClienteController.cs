@@ -32,7 +32,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            ClienteModel clientemodel = db.Cliente.Find(id);
+            ClienteModel clientemodel = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
             if (clientemodel == null)
             {
                 return HttpNotFound();
@@ -85,6 +85,10 @@ namespace CupcakeriaOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ClienteModel clientemodel)
         {
+            var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
+            clientemodel.emailCliente = cliente.emailCliente;
+            clientemodel.loginUsuSenha = cliente.loginUsuSenha;
+            clientemodel.loginUsuSalt = cliente.loginUsuSalt;
             if (ModelState.IsValid)
             {
                 db.Entry(clientemodel).State = EntityState.Modified;
