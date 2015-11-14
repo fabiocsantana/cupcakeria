@@ -408,6 +408,7 @@
     <Content Include="Views\Cliente\Registrar.cshtml" />
     <Content Include="Views\Cliente\Logout.cshtml" />
     <Content Include="Views\Cliente\Login.cshtml" />
+    <Content Include="Views\Endereco\Importar.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
