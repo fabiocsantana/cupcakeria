@@ -8,22 +8,22 @@
 
 <table style="border: 1px black solid;">
     <tr style="border: 1px black solid">
-        <th style="padding: 20px;">
+        <th style="padding: 20px; text-align:center;">
             @Html.DisplayNameFor(model => model.cepEndereco)
         </th>
-        <th style="padding: 20px;">
+        <th style="padding: 20px; text-align:center;">
             @Html.DisplayNameFor(model => model.logrEndereco)
         </th>
-        <th style="padding: 20px;">
+        <th style="padding: 20px; text-align:center;">
             @Html.DisplayNameFor(model => model.numEndereco)
         </th>
-        <th style="padding: 20px;">
+        <th style="padding: 20px; text-align:center;">
             @Html.DisplayNameFor(model => model.complEndereco)
         </th>
-        <th style="padding: 20px;">
+        <th style="padding: 20px; text-align:center;">
             @Html.DisplayNameFor(model => model.bairroEndereco)
         </th>
-        <th style="padding: 20px;">
+        <th style="padding: 20px; text-align:center;">
             @Html.DisplayNameFor(model => model.cidEndereco)
         </th>
         <th></th>
@@ -32,22 +32,22 @@
     @foreach (var item in Model)
     {
         <tr style="border: 1px black solid">
-            <td>
+            <td style="text-align:center">
                 @Html.DisplayFor(modelItem => item.cepEndereco)
             </td>
-            <td>
+            <td style="text-align:center">
                 @Html.DisplayFor(modelItem => item.logrEndereco)
             </td>
-            <td>
+            <td style="text-align:center">
                 @Html.DisplayFor(modelItem => item.numEndereco)
             </td>
-            <td>
+            <td style="text-align:center">
                 @Html.DisplayFor(modelItem => item.complEndereco)
             </td>
-            <td>
+            <td style="text-align:center">
                 @Html.DisplayFor(modelItem => item.bairroEndereco)
             </td>
-            <td>
+            <td style="text-align:center">
                 @Html.DisplayFor(modelItem => item.cidEndereco)
             </td>
             <td>

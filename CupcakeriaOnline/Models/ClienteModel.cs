@@ -43,7 +43,7 @@ namespace CupcakeriaOnline.Models
             [DataType(DataType.Password)]
             public String loginUsuSenha { get; set; }
 
-            [StringLength(4000)]
+            [StringLength(4000, MinimumLength = 6)]
             public String loginUsuSalt { get; set; }
         }
 }

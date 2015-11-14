@@ -13,9 +13,10 @@
         @Html.ValidationSummary(true)
 
         <fieldset>
-            <legend>ClienteModel</legend>
-
             @Html.HiddenFor(model => model.pk_idCliente)
+            @Html.HiddenFor(model => model.emailCliente)
+            @Html.HiddenFor(model => model.loginUsuSenha)
+            @Html.HiddenFor(model => model.loginUsuSalt)
 
             <div class="editor-label">
                 @Html.LabelFor(model => model.nomeCliente)
@@ -42,7 +43,7 @@
             </div>
 
             <p>
-                <input type="submit" value="Salvar Alterações" />
+                <input type="submit" value="Gravar" />
             </p>
         </fieldset>
     }
