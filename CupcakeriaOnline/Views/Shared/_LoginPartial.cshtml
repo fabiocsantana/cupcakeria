@@ -1,4 +1,5 @@
 ﻿@if (Request.IsAuthenticated) {
+    if (User.Identity.Name != "Administrador") {
     <text>
         @Html.ActionLink(User.Identity.Name, "Details", "Cliente", routeValues: null, htmlAttributes: new { @class = "username", title = "Ver Perfil" })
         @using (Html.BeginForm("Logout", "Cliente", FormMethod.Post, new { id = "logoutForm" })) {
@@ -6,9 +7,22 @@
             <a href="javascript:document.getElementById('logoutForm').submit()">Sair</a>
         }
     </text>
-} else {
-    <ul>
-        <li>@Html.ActionLink("Registrar", "Registrar", "Cliente", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Entrar", "Login", "Cliente", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    }
+    else
+    {
+        <text>
+            @Html.ActionLink(User.Identity.Name, "Index", "Administracao", routeValues: null, htmlAttributes: new { @class = "username" })
+            @using (Html.BeginForm("Logout", "Administracao", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <a href="javascript:document.getElementById('logoutForm').submit()">Sair</a>
+            }
+        </text>
+    }
+}
+else
+{
+        <h2>
+            @Html.ActionLink("Área administrativa", "Login", "Administracao")
+        </h2>
 }

@@ -26,7 +26,7 @@
                     <section id="login">
                         @Html.Partial("_LoginPartial")
                     </section>
-@if (Request.IsAuthenticated)
+@if (Request.IsAuthenticated && User.Identity.Name != "Administrador")
 {
                     <nav>
                         <ul id="menu">
@@ -45,16 +45,6 @@
                 @RenderBody()
             </section>
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-@if (!Request.IsAuthenticated)
-{
-    <p><li>@Html.ActionLink("Área administrativa", "Login", "Administracao")</li></p>
-}
-                </div>
-            </div>
-        </footer>
 
         @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)

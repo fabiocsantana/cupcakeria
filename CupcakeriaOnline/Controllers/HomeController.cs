@@ -12,7 +12,16 @@ namespace CupcakeriaOnline.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Cliente"); 
+                if (User.Identity.Name != "Administrador")
+                {
+                    return RedirectToAction("Index", "Cliente"); 
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Administracao"); 
+
+                }
+
             }
             else{
                 return RedirectToAction("Login", "Cliente");

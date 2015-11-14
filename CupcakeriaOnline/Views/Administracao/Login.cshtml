@@ -1,6 +1,37 @@
-﻿@{
+﻿@model CupcakeriaOnline.Models.AdministracaoModel
+
+@{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Login</h2>
+<h2 class="site-title">Acesso administrativo</h2>
+
+<div style="position:relative; margin-top:auto; margin-left: auto;">
+    <div id="layout_login" style="width:600px; position:relative;margin-bottom:auto;margin-left:auto">
+        <div style="width:300px;position:relative; text-align:center;">
+            <img src="~/Images/logo.png" style="width: 100px; height: 172px;" />
+            <h1 class="site-title">Cupcakeria Online</h1>
+        </div>
+        <div style="width:300px;position:relative; float:left;margin-left:20px; margin-top:20px;">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true, "Acesso negado")
+
+                <div>
+                    <fieldset>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.loginAdmSenha)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.loginAdmSenha)
+                            @Html.ValidationMessageFor(model => model.loginAdmSenha)
+                        </div>
+
+                        <input type="submit" value="Entrar" />
+                    </fieldset>
+                </div>
+            }
+        </div>
+    </div>
+</div>

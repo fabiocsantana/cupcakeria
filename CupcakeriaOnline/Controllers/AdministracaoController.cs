@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using CupcakeriaOnline.Models;
 using CupcakeriaOnline.Repository;
 
@@ -37,7 +38,7 @@ namespace CupcakeriaOnline.Controllers
 
         //
         // GET: /Administracao/Create
-
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -52,11 +53,27 @@ namespace CupcakeriaOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.AdministracaoModels.Add(administracaomodel);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                    using (var dbContext = new CupcakeriaContext())
+                    {
+                        var crypto = new SimpleCrypto.PBKDF2();
 
+                        var senhaCripto = crypto.Compute(administracaomodel.loginAdmSenha);
+
+                        var sysAdm = dbContext.AdministracaoModels.Create();
+
+                        sysAdm.loginAdmSenha = senhaCripto;
+                        sysAdm.loginAdmSalt = crypto.Salt;
+
+                        dbContext.AdministracaoModels.Add(sysAdm);
+                        dbContext.SaveChanges();
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+            else
+            {
+                ModelState.AddModelError("", "Não foi possível efetuar o cadastro");
+            }
             return View(administracaomodel);
         }
 
@@ -121,9 +138,66 @@ namespace CupcakeriaOnline.Controllers
             base.Dispose(disposing);
         }
 
+        //apenas exibe a tela de login
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
+        }
+
+        //pega as informacoes que o usuario inseriu para fazer validacao
+        [HttpPost]
+        public ActionResult Login(Models.AdministracaoModel adm)
+        {
+            if (EhValido(adm.loginAdmSenha))
+            {
+                FormsAuthentication.SetAuthCookie("Administrador", false);
+                return RedirectToAction("Index", "Administracao", adm);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Não foi possível efetuar o login");
+            }
+
+            return View(adm);
+        }
+
+        private bool EhValido(String senha)
+        {
+            bool ehValido;
+
+            var crypto = new SimpleCrypto.PBKDF2();
+
+            using (var db = new CupcakeriaContext())
+            {
+                var sysAdm = db.AdministracaoModels.First(s => s.loginAdmSalt != null);
+
+                var senhaInseridaCripto = crypto.Compute(senha, sysAdm.loginAdmSalt);
+                    
+                if (sysAdm != null)
+                {
+                    if (sysAdm.loginAdmSenha == senhaInseridaCripto)
+                    {
+                        ehValido = true;
+                    }
+                    else
+                    {
+                        ehValido = false;
+                    }
+                }
+                else
+                {
+                    ehValido = false;
+                }
+            }
+            return ehValido;
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
