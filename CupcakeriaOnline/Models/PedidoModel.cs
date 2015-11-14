@@ -32,6 +32,10 @@ namespace CupcakeriaOnline.Models
             [ForeignKey("fk_idCliente")]
             public virtual ClienteModel Cliente { get; set; }
 
+            public int? fk_idEndereco { get; set; }
+            [ForeignKey("fk_idCliente")]
+            public virtual EnderecoModel Endereco { get; set; }
+
             //[Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
             [DisplayName("Status")]
             public bool? statusPedido { get; set; }

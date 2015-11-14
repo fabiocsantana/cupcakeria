@@ -14,7 +14,7 @@ namespace CupcakeriaOnline.Controllers
     public class Cupcake_PedidoController : Controller
     {
         private CupcakeriaContext db = new CupcakeriaContext();
-        List<Cupcake_Pedido> Carrinho = new List<Cupcake_Pedido>();
+        public static List<Cupcake_Pedido> Carrinho = new List<Cupcake_Pedido>();
 
 
         //
@@ -161,8 +161,10 @@ namespace CupcakeriaOnline.Controllers
                 cupcake_pedido.Massa = db.Massa.Find(cupcake_pedido.fk_idMassa);
                 cupcake_pedido.Cobertura = db.Coberturas.Find(cupcake_pedido.fk_idCobertura);
                 cupcake_pedido.Recheio = db.Recheios.Find(cupcake_pedido.fk_idRecheio);
+                cupcake_pedido.Pedido = (PedidoModel)TempData["pedido"];
+                cupcake_pedido.fk_idPedido = cupcake_pedido.Pedido.pk_idPedido;
                 Carrinho.Add(cupcake_pedido);
-                return RedirectToAction("Carrinho_Compras");
+                return RedirectToAction("Carrinho_Compras", new { id = cupcake_pedido.pk_idCupcake});
             }
             double? valorTotal = massa.valorUnitMassa + cobertura.valorUnitCobertura + recheio.valorUnitRecheio;
 
@@ -177,10 +179,32 @@ namespace CupcakeriaOnline.Controllers
             return View("CriarCupcakeConfirmar");
         }
 
-        public ActionResult Carrinho_Compras()
+        public ActionResult Carrinho_Compras(int id)
         {
             //var cupcake_pedido = db.Cupcake_Pedido.Include(c => c.Massa).Include(c => c.Recheio).Include(c => c.Cobertura);
-            return View(Carrinho);
+            ViewBag.cupcakes = Carrinho;
+            double? total= 0;
+            foreach (var item in Carrinho)
+            {
+                total += item.valorTotalCupcake;
+            }
+            ViewBag.total = total;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Carrinho_Compras()
+        {
+
+            if (Carrinho.Count() != 0 )
+            {
+                TempData["Cupcakes"] = Carrinho;
+                return RedirectToAction("PedidoConfirmar", "Pedido");
+            }
+            
+
+            return View();
         }
 
         protected override void Dispose(bool disposing)
