@@ -11,7 +11,7 @@
     else
     {
         <text>
-            @Html.ActionLink(User.Identity.Name, "Index", "Administracao", routeValues: null, htmlAttributes: new { @class = "username" })
+            @Html.ActionLink(User.Identity.Name, "Edit", "Administracao", routeValues: null, htmlAttributes: new { @class = "username" })
             @using (Html.BeginForm("Logout", "Administracao", FormMethod.Post, new { id = "logoutForm" }))
             {
                 @Html.AntiForgeryToken()

@@ -82,7 +82,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            AdministracaoModel administracaomodel = db.AdministracaoModels.Find(id);
+            AdministracaoModel administracaomodel = db.AdministracaoModels.FirstOrDefault(a => a.loginAdmSenha != null);
             if (administracaomodel == null)
             {
                 return HttpNotFound();
@@ -97,6 +97,17 @@ namespace CupcakeriaOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(AdministracaoModel administracaomodel)
         {
+
+            using (var dbContext = new CupcakeriaContext())
+            {
+                var crypto = new SimpleCrypto.PBKDF2();
+
+                var senhaCripto = crypto.Compute(administracaomodel.loginAdmSenha);
+
+                administracaomodel.loginAdmSenha = senhaCripto;
+                administracaomodel.loginAdmSalt = crypto.Salt;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(administracaomodel).State = EntityState.Modified;
