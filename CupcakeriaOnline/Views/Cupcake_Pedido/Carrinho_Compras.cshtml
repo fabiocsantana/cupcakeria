@@ -1,30 +1,73 @@
-﻿@model List<CupcakeriaOnline.Models.Cupcake_Pedido>
+﻿
+@model CupcakeriaOnline.Models.Cupcake_Pedido
 
 @{
-    ViewBag.Title = "Carrinho_Compras";
+    ViewBag.Title = "Carrinho";
 }
 
-<h2>Carrinho_Compras</h2>
+<h2>Carrinho de Compras</h2>
 
-
-@foreach (var item in Model)
-{
+<p>
+    @Html.ActionLink("Adicionar Outro", "CriarCupcake")
+</p>
+<table>
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Massa.descrMassa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Recheio.descrRecheio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cobertura.descrCobertura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valorCupcake)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id = item.pk_idCupcake })
-        </td>
+        <th>
+            Massa
+        <th>
+            Recheio
+        </th>
+        <th>
+            Cobertura
+        </th>
+        <th>
+            Valor do Cupcake
+        </th>
+        <th>
+            Quantidade
+        </th>
+        <th>
+            Valor Total
+        </th>
+        <th></th>
     </tr>
-}
 
+   @foreach (var item in ViewBag.cupcakes)
+   {
+    <tr>
+        <td>@item.Massa.descrMassa</td>
+        
+        <td>
+            @item.Recheio.descrRecheio
+        </td>
+        <td>
+            @item.Cobertura.descrCobertura
+        </td>
+        <td>
+            @item.valorCupcake
+        </td>
+        <td>
+            @item.qtdeItem
+        </td>
+        <td>
+            @item.valorTotalCupcake
+        </td>
+
+    </tr>
+   }
+
+</table>
+
+<b>Valor total do Pedido:</b><li>@ViewBag.total</li>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+<fieldset>
+    
+    <p>
+        <input type="submit" value="Fechar Pedido" />
+    </p>
+
+</fieldset>
+}
