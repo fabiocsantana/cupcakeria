@@ -33,8 +33,9 @@
                     <section id="login">
                         @Html.Partial("_LoginPartial")
                     </section>
-@if (Request.IsAuthenticated && User.Identity.Name != "Administrador")
+@if (Request.IsAuthenticated)
 {
+    if (User.Identity.Name != "Administrador") { 
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Página inicial", "Index", "Cliente")</li>
@@ -42,6 +43,18 @@
                             <li>@Html.ActionLink("Endereços", "Index", "Endereco")</li>
                         </ul>
                     </nav>
+    }
+    else
+    {
+        <nav>
+            <ul id="menu">
+                <li>@Html.ActionLink("Massas", "Index", "Massa")</li>
+                <li>@Html.ActionLink("Recheios", "Index", "Recheio")</li>
+                <li>@Html.ActionLink("Coberturas", "Index", "Cobertura")</li>
+                <li>@Html.ActionLink("Relatórios", "Index", "Administracao")</li>
+            </ul>
+        </nav>
+    }
 }
                 </div>
             </div>
