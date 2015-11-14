@@ -10,16 +10,17 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
+    <fieldset style="margin-top: 20px">
         @Html.HiddenFor(model => model.pk_idAdministracao)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.loginAdmSenha)
+            <div style="font-size: 1.2em; font-weight: 600;">Insira a nova senha</div>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.loginAdmSenha)
             @Html.ValidationMessageFor(model => model.loginAdmSenha)
         </div>
+
         <p>
             <input type="submit" value="Gravar" />
         </p>
