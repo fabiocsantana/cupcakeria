@@ -9,37 +9,35 @@
     <h2 class="site-title">Meu Perfil</h2>
 
     <fieldset>
-        <legend>ClienteModel</legend>
-
-        <div class="display-label">
+        <div class="display-label" style="font-weight:bolder; margin-top:20px">
             @Html.DisplayNameFor(model => model.nomeCliente)
         </div>
         <div class="display-field">
             @Html.DisplayFor(model => model.nomeCliente)
         </div>
 
-        <div class="display-label">
+        <div class="display-label" style="font-weight:bolder; margin-top:20px">
             @Html.DisplayNameFor(model => model.dataNascCliente)
         </div>
         <div class="display-field">
             @Html.DisplayFor(model => model.dataNascCliente)
         </div>
 
-        <div class="display-label">
+        <div class="display-label" style="font-weight:bolder; margin-top:20px">
             @Html.DisplayNameFor(model => model.telCliente)
         </div>
         <div class="display-field">
             @Html.DisplayFor(model => model.telCliente)
         </div>
 
-        <div class="display-label">
+        <div class="display-label" style="font-weight:bolder; margin-top:20px">
             @Html.DisplayNameFor(model => model.emailCliente)
         </div>
         <div class="display-field">
             @Html.DisplayFor(model => model.emailCliente)
         </div>
     </fieldset>
-    <p>
+    <h3 style="margin-top: 30px">
         @Html.ActionLink("Editar Perfil", "Edit", new { id = Model.pk_idCliente })
-    </p>
+    </h3>
 </div>

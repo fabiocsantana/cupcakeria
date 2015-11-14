@@ -4,24 +4,25 @@
     ViewBag.Title = "Index";
 }
 
-<div style="position:relative; margin-top:auto; margin-left: auto;">
-    <h2 class="site-title">Bem vindo!</h2>
-
-    <article>
-        <ul class="round">
-            <li class="title">
-                @Html.ActionLink("Novo pedido", "IniciarPedido", "Pedido")
-            </li>
-            <li class="title">
-                @Html.ActionLink("Histórico de pedidos", "Index", "Pedido")
-            </li>
-            <li class="title">
-                @Html.ActionLink("Meus endereços", "Index", "Endereco")
-            </li>
-            <li class="title">
-                @Html.ActionLink("Novo Endereco", "Create", "Endereco")
-            </li>
-        </ul>
-
+<div style="position:relative; margin-top:auto; margin-left: auto; text-align:center">
+    <div style="position:relative; margin-top:auto; margin-left: auto; text-align:center;">
+        <img src="~/Images/logo.png" style="width: 100px; height: 172px;" />
+        <h2 class="site-title">Bem vindo a Cupcakeria Online!</h2>
+    </div>
+    <!--
+    <article style="text-align:left; position:relative; margin-top:auto; margin-left:auto; width:100%; font-size:x-large; text-decoration:none">
+        <div style="margin: 50px">
+            @Html.ActionLink("Novo pedido", "IniciarPedido", "Pedido")
+        </div>
+        <div style="margin: 50px">
+            @Html.ActionLink("Histórico de pedidos", "Index", "Pedido")
+        </div>
+        <div style="margin: 50px">
+            @Html.ActionLink("Meus endereços", "Index", "Endereco")
+        </div>
+        <div style="margin: 50px">
+            @Html.ActionLink("Novo Endereço", "Create", "Endereco")
+        </div>
     </article>
+    -->
 </div>

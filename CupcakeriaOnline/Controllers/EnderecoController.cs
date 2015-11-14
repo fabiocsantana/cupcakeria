@@ -20,8 +20,11 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Index()
         {
-            var endereco = db.Endereco.Include(e => e.Cliente);
-            return View(endereco.ToList());
+            var listaEndereco = db.Endereco.ToList();
+
+            var meusEnderecos = listaEndereco.Where(end => end.Cliente.emailCliente == User.Identity.Name);
+            
+            return View(meusEnderecos.ToList());
         }
 
         //
@@ -137,8 +140,22 @@ namespace CupcakeriaOnline.Controllers
             return View(meusEnderecos.ToList());
         }
 
+        [HttpGet]
         public ActionResult Importar()
+        {            
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Importar(EnderecoModel endereco)
         {
+            foreach (string upload in Request.Files)
+            {
+                if (!Request.Files[upload].InputStream.CanRead)
+                {
+                    
+                }
+            }
             return View();
         }
     }
