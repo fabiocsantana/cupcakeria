@@ -10,6 +10,7 @@ using CupcakeriaOnline.Repository;
 using WebMatrix.WebData;
 using CupcakeriaOnline.Filters;
 using System.Web.Security;
+using System.Globalization;
 
 namespace CupcakeriaOnline.Controllers
 {
@@ -129,6 +130,7 @@ namespace CupcakeriaOnline.Controllers
         {
             var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
             pedido.Cliente = cliente;
+            pedido.fk_idCliente = cliente.pk_idCliente;
 
             if (ModelState.IsValid)
             {
@@ -136,11 +138,71 @@ namespace CupcakeriaOnline.Controllers
 
                 Pedido = pedido;
                 db.SaveChanges();
-                return RedirectToAction("CriarCupcake ", "Cupcake_Pedido");
+                TempData["pedido"] = pedido;
+                return RedirectToAction("CriarCupcake", "Cupcake_Pedido");
             }
             return View();
         }
 
+        public ActionResult PedidoConfirmar()
+        {
+            
+            List<Cupcake_Pedido> Cupcakes = (List<Cupcake_Pedido>)TempData["Cupcakes"];
+            PedidoModel pedidoAFechar = Cupcakes.First().Pedido;
+            var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
+            ViewBag.fk_idEndereco = new SelectList(db.Endereco.Where(c => c.fk_idCliente.Equals(cliente.pk_idCliente)), "pk_idEndereco", "logrEndereco", pedidoAFechar.fk_idEndereco);
+            ViewBag.CupcakesDoPedido = Cupcakes;
+            double? total = 0;
+            foreach (var item in Cupcakes)
+            {
+                total += item.valorTotalCupcake;
+            }
+            
+            ViewBag.total = Convert.ToString(total, CultureInfo.CreateSpecificCulture("pt-BR")); ;
+            TempData["Cupcakes"] = Cupcakes;
+            return View(pedidoAFechar);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult PedidoConfirmar(PedidoModel pedido)
+        {
+            List<Cupcake_Pedido> Cupcakes = (List<Cupcake_Pedido>)TempData["Cupcakes"];
+            var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
+            pedido.Cliente = cliente;
+            pedido.Endereco = db.Endereco.Find(pedido.fk_idEndereco);
+            PedidoModel pedidoTeste = pedido;
+
+            if (ModelState.IsValid)
+            {
+                db.Pedidos.Add(pedido);
+                db.SaveChanges();
+                //List<Cupcake_Pedido> Cupcakes = (List<Cupcake_Pedido>)TempData["Cupcakes"];
+                foreach(var c in Cupcakes){
+                db.Cupcake_Pedido.Add(c);
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            
+            }
+            
+            //List<Cupcake_Pedido> Cupcakes = (List<Cupcake_Pedido>)TempData["Cupcakes"];
+            //PedidoModel pedidoAFechar = Cupcakes.First().Pedido;
+            //var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
+            //ViewBag.CupcakesDoPedido = Cupcakes;
+            //ViewBag.fk_idEndereco = new SelectList(db.Endereco.Where(c => c.fk_idCliente.Equals(cliente.pk_idCliente)), "pk_idEndereco", "logrEndereco", pedido.fk_idEndereco);
+            /*double? total = 0;
+            foreach (var item in Cupcakes)
+            {
+                total += item.valorTotalCupcake;
+            }
+            
+            ViewBag.total = Convert.ToString(total, CultureInfo.CreateSpecificCulture("pt-BR")); ;*/
+
+
+            return View("Index");
+        }
+    
 
         protected override void Dispose(bool disposing)
         {
