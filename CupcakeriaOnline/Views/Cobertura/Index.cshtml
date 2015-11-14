@@ -4,48 +4,49 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="site-title">Coberturas cadastradas</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.valorUnitCobertura)
-        </th>
-        <th>
+<table style="border: 1px black solid;">
+    <tr style="border: 1px black solid">
+        <th style="padding: 20px;">
             @Html.DisplayNameFor(model => model.descrCobertura)
         </th>
-        <th>
+        <th style="padding: 20px;">
+            @Html.DisplayNameFor(model => model.valorUnitCobertura)
+        </th>
+
+        <th style="padding: 20px;">
             @Html.DisplayNameFor(model => model.dtCadastroCobertura)
         </th>
-        <th>
+        <th style="padding: 20px;">
             @Html.DisplayNameFor(model => model.dispCobertura)
         </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.valorUnitCobertura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descrCobertura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dtCadastroCobertura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dispCobertura)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.pk_idCobertura }) |
-            @Html.ActionLink("Details", "Details", new { id=item.pk_idCobertura }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.pk_idCobertura })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr style="border: 1px black solid">
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.descrCobertura)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.valorUnitCobertura) reais
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.dtCadastroCobertura)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.dispCobertura)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.pk_idCobertura }) |
+                @Html.ActionLink("Ver", "Details", new { id = item.pk_idCobertura }) |
+                @Html.ActionLink("Excluir", "Delete", new { id = item.pk_idCobertura })
+            </td>
+        </tr>
+    }
 </table>
+
+<h3>
+    @Html.ActionLink("Cadastrar nova cobertura", "Create", "Cobertura")
+</h3>

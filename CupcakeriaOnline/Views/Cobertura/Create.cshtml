@@ -4,17 +4,13 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Criar Cobertura</h2>
+<h2 class="site-title">Nova cobertura</h2>
 
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm()){
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>CoberturaModel</legend>
-
-
+    <fieldset style="margin-top:20px">
         <div class="editor-label">
             @Html.LabelFor(model => model.descrCobertura)
         </div>
@@ -28,9 +24,8 @@
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.valorUnitCobertura)
-            @Html.ValidationMessageFor(model => model.valorUnitCobertura)   
+            @Html.ValidationMessageFor(model => model.valorUnitCobertura)
         </div>
-
 
         <!--<div class="editor-label">
             @Html.HiddenFor(model => model.dtCadastroCobertura)
@@ -47,16 +42,14 @@
             @Html.EditorFor(model => model.dispCobertura)
             @Html.ValidationMessageFor(model => model.dispCobertura)
         </div>
-
         <p>
-            <input type="submit" value="Criar" />
-            
+            <input type="submit" value="Gravar" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Voltar para Coberturas", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {

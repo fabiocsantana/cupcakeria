@@ -4,40 +4,38 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="site-title">Detalhes da Massa</h2>
 
-<fieldset>
-    <legend>MassaModel</legend>
-
-    <div class="display-label">
+<fieldset style="margin-top:20px">
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
          @Html.DisplayNameFor(model => model.descrMassa)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.descrMassa)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.valorUnitMassa)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.valorUnitMassa)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.valorUnitMassa)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dtCadastroMassa)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.dtCadastroMassa)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.dtCadastroMassa)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dispMassa)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.dispMassa)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.dispMassa)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idMassa }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar massa", "Edit", new { id=Model.pk_idMassa }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

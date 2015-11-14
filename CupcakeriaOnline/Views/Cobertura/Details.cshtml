@@ -4,40 +4,38 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="site-title">Detalhes da Cobertura</h2>
 
-<fieldset>
-    <legend>CoberturaModel</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.valorUnitCobertura)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.valorUnitCobertura)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.descrCobertura)
+<fieldset style="margin-top:20px">
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.descrCobertura)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.descrCobertura)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dtCadastroCobertura)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.valorUnitCobertura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.valorUnitCobertura) reais
+    </div>
+
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.dtCadastroCobertura)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.dtCadastroCobertura)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dispCobertura)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.dispCobertura)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.dispCobertura)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idCobertura }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar cobertura", "Edit", new { id = Model.pk_idCobertura }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

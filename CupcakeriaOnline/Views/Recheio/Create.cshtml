@@ -4,14 +4,13 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2 class="site-title">Novo recheio</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>RecheioModel</legend>
+    <fieldset style="margin-top:20px">
         <div class="editor-label">
             @Html.LabelFor(model => model.descrRecheio)
         </div>
@@ -19,7 +18,6 @@
             @Html.EditorFor(model => model.descrRecheio)
             @Html.ValidationMessageFor(model => model.descrRecheio)
         </div>
-
 
         <div class="editor-label">
             @Html.LabelFor(model => model.valorUnitRecheio)
@@ -44,15 +42,14 @@
             @Html.EditorFor(model => model.dispRecheio)
             @Html.ValidationMessageFor(model => model.dispRecheio)
         </div>
-
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Gravar" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {

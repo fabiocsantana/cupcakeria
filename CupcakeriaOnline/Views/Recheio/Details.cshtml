@@ -4,40 +4,38 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="site-title">Detalhes do recheio</h2>
 
-<fieldset>
-    <legend>RecheioModel</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.valorUnitRecheio)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.valorUnitRecheio)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.descrRecheio)
+<fieldset style="margin-top:20px">
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.descrRecheio)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.descrRecheio)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dtCadastroRecheio)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.valorUnitRecheio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.valorUnitRecheio) reais
+    </div>
+
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.dtCadastroRecheio)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.dtCadastroRecheio)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dispRecheio)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.dispRecheio)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.dispRecheio)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idRecheio }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar recheio", "Edit", new { id = Model.pk_idRecheio }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

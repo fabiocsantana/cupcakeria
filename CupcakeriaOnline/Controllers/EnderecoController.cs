@@ -89,6 +89,10 @@ namespace CupcakeriaOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(EnderecoModel enderecomodel)
         {
+            var sysCliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
+            enderecomodel.fk_idCliente = sysCliente.pk_idCliente;
+            enderecomodel.Cliente = sysCliente;
+
             if (ModelState.IsValid)
             {
                 db.Entry(enderecomodel).State = EntityState.Modified;

@@ -14,7 +14,14 @@
                 <div class="float-left">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <p class="site-title">Cupcakeria</p>
+                        if (User.Identity.Name == "Administrador")
+                        {
+                            <p class="site-title">@Html.ActionLink("Cupcakeria", "Index", "Administracao")</p>
+                        }
+                        else
+                        {
+                            <p class="site-title">@Html.ActionLink("Cupcakeria", "Index", "Cliente")</p>
+                        }
                     }
                     else
                     {

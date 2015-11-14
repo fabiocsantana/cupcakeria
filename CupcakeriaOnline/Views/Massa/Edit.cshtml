@@ -4,15 +4,13 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2 class="site-title">Editar Massa</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>MassaModel</legend>
-
+    <fieldset style="margin-top:20px">
         @Html.HiddenFor(model => model.pk_idMassa)
 
         <div class="editor-label">
@@ -46,15 +44,14 @@
             @Html.EditorFor(model => model.dispMassa)
             @Html.ValidationMessageFor(model => model.dispMassa)
         </div>
-
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Salvar" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {

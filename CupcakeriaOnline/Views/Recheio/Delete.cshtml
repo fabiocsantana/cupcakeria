@@ -4,44 +4,44 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2 class="site-title">Confirmar exclusão de recheio</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Excluir este recheio?</h3>
+
 <fieldset>
-    <legend>RecheioModel</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.valorUnitRecheio)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.valorUnitRecheio)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.valorUnitRecheio)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.descrRecheio)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.descrRecheio)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.descrRecheio)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dtCadastroRecheio)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.dtCadastroRecheio)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.dtCadastroRecheio)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dispRecheio)
+    <div class="display-label" style="font-weight:bolder; margin-top:20px">
+        @Html.DisplayNameFor(model => model.dispRecheio)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.dispRecheio)
     </div>
 </fieldset>
+
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Excluir" /> |
+        @Html.ActionLink("Voltar", "Index")
     </p>
 }

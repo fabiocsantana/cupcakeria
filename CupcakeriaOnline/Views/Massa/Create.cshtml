@@ -4,15 +4,13 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2 class="site-title">Nova massa</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>MassaModel</legend>
-
+    <fieldset style="margin-top:20px">
         <div class="editor-label">
             @Html.LabelFor(model => model.descrMassa)
         </div>
@@ -44,15 +42,14 @@
             @Html.EditorFor(model => model.dispMassa)
             @Html.ValidationMessageFor(model => model.dispMassa)
         </div>
-
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Gravar" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {
