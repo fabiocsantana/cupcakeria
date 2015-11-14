@@ -389,6 +389,7 @@
     <Content Include="Views\Cupcake_Pedido\Carrinho_Compras.cshtml" />
     <Content Include="Views\Cliente\Perfil.cshtml" />
     <Content Include="Views\Cliente\AlteraPerfil.cshtml" />
+    <Content Include="Views\Endereco\MeusEnderecos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
