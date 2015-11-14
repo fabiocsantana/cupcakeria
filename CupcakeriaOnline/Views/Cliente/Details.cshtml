@@ -4,39 +4,42 @@
     ViewBag.Title = "Meu Perfil";
 }
 
-<h2>Meu Perfil</h2>
+<div style="position:relative; margin-top:auto; margin-left: auto;">
 
-<fieldset>
-    <legend>ClienteModel</legend>
+    <h2 class="site-title">Meu Perfil</h2>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.nomeCliente)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.nomeCliente)
-    </div>
+    <fieldset>
+        <legend>ClienteModel</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dataNascCliente)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.dataNascCliente)
-    </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.nomeCliente)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.nomeCliente)
+        </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.telCliente)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.telCliente)
-    </div>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.dataNascCliente)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.dataNascCliente)
+        </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.emailCliente)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.emailCliente)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Editar Perfil", "Edit", new { id=Model.pk_idCliente })
-</p>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.telCliente)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.telCliente)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.emailCliente)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.emailCliente)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Editar Perfil", "Edit", new { id = Model.pk_idCliente })
+    </p>
+</div>

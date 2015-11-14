@@ -4,54 +4,52 @@
     ViewBag.Title = "Detalhes do Endereço";
 }
 
-<h2>Detalhes do Endereço</h2>
+<h2 class="site-title">Detalhes do Endereço</h2>
 
-<fieldset>
-    <legend>EnderecoModel</legend>
-
-    <div class="display-label">
+<fieldset style="margin-top: 20px">
+    <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
          @Html.DisplayNameFor(model => model.cepEndereco)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.cepEndereco)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.logrEndereco)
+    <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+        @Html.DisplayNameFor(model => model.logrEndereco)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.logrEndereco)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.numEndereco)
+    <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+        @Html.DisplayNameFor(model => model.numEndereco)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.numEndereco)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.complEndereco)
+    <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+        @Html.DisplayNameFor(model => model.complEndereco)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.complEndereco)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.bairroEndereco)
+    <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+        @Html.DisplayNameFor(model => model.bairroEndereco)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.bairroEndereco)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.cidEndereco)
+    <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+        @Html.DisplayNameFor(model => model.cidEndereco)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.cidEndereco)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.pk_idEndereco }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar este endereço", "Edit", new { id=Model.pk_idEndereco }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>

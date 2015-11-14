@@ -12,7 +12,15 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">Cupcakeria</p>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <p class="site-title">Cupcakeria</p>
+                    }
+                    else
+                    {
+                        <p class="site-title">@Html.ActionLink("Cupcakeria", "Index", "Home")</p>
+                    }
+                    
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -23,8 +31,8 @@
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Página inicial", "Index", "Cliente")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Pedidos", "Index", "Pedido")</li>
+                            <li>@Html.ActionLink("Endereços", "Index", "Endereco")</li>
                         </ul>
                     </nav>
 }

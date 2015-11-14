@@ -3,58 +3,61 @@
 @{
     ViewBag.Title = "Create";
 }
+<div style="position:relative; margin-top:auto; margin-left: auto;">
 
-<h2>Novo usuário</h2>
+    <h2 class="site-title">Novo usuário</h2>
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>ClienteModel</legend>
+        <fieldset>
+            <legend>ClienteModel</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.nomeCliente)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.nomeCliente)
-            @Html.ValidationMessageFor(model => model.nomeCliente)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.nomeCliente)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.nomeCliente)
+                @Html.ValidationMessageFor(model => model.nomeCliente)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.dataNascCliente)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.dataNascCliente)
-            @Html.ValidationMessageFor(model => model.dataNascCliente)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.dataNascCliente)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.dataNascCliente)
+                @Html.ValidationMessageFor(model => model.dataNascCliente)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.telCliente)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.telCliente)
-            @Html.ValidationMessageFor(model => model.telCliente)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.telCliente)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.telCliente)
+                @Html.ValidationMessageFor(model => model.telCliente)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.emailCliente)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.emailCliente)
-            @Html.ValidationMessageFor(model => model.emailCliente)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.emailCliente)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.emailCliente)
+                @Html.ValidationMessageFor(model => model.emailCliente)
+            </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
