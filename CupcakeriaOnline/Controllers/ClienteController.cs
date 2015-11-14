@@ -219,10 +219,11 @@ namespace CupcakeriaOnline.Controllers
             {
                 var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == email);
 
-                var senhaInseridaCripto = crypto.Compute(senha, cliente.loginUsuSalt);
-
                 if(cliente != null){
-                    if(cliente.loginUsuSenha == senhaInseridaCripto){
+                    var senhaInseridaCripto = crypto.Compute(senha, cliente.loginUsuSalt); 
+                    
+                    if (cliente.loginUsuSenha == senhaInseridaCripto)
+                    {
                         ehValido = true;
                     }
                     else
