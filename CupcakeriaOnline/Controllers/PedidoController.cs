@@ -47,9 +47,19 @@ namespace CupcakeriaOnline.Controllers
                 return HttpNotFound();
             }
 
-            var Cupcakes = db.Cupcake_Pedido.Where(p => p.fk_idPedido == id);
+            var Cupcakes = from n in db.Cupcake_Pedido
+                           where n.fk_idPedido == pedidomodel.pk_idPedido 
+                           select n;
             var Cliente = db.Cliente.Find(pedidomodel.fk_idCliente);
             var endereco = db.Endereco.Find(pedidomodel.fk_idEndereco);
+            // List<Cupcake_Pedido> cupcakess = new List<Cupcake_Pedido>();
+            foreach (var c in Cupcakes)
+            {
+                Cupcake_Pedido ca = c;
+                Console.WriteLine("teste");
+            } 
+         
+
             ViewBag.Cupcakes = Cupcakes;
             int i = Cupcakes.Count();
             ViewBag.Endereco = endereco;
@@ -57,7 +67,37 @@ namespace CupcakeriaOnline.Controllers
             return View(pedidomodel);
         }
 
+        public ActionResult PedidosAbertos()
+        {
+            var pedidos = db.Pedidos.Where(p => p.statusPedido.Equals(false));
+            return View(pedidos);
+        }
 
+        public ActionResult AlterarStatus(int id = 0)
+        {
+            PedidoModel pedidomodel = db.Pedidos.Find(id);
+            if (pedidomodel == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (pedidomodel.statusPedido.Equals(false))
+            {
+                pedidomodel.statusPedido = true;
+            }
+            else {
+                pedidomodel.statusPedido = false;
+            }
+            if (ModelState.IsValid)
+            {
+                db.Entry(pedidomodel).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View();
+
+        }
         //
         // GET: /Pedido/Details/5
 

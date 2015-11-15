@@ -150,6 +150,9 @@
         @Html.DisplayFor(model => model.dataPedido)
     </div>
 </fieldset>
+@if (User.Identity.Name != "Administrador") { 
 <p>
     @Html.ActionLink("Voltar para Lista", "PedidosCliente")
-</p>
+</p>}else{
+    @Html.ActionLink("Voltar para Lista", "Index")
+    }
