@@ -1,0 +1,151 @@
+﻿@model CupcakeriaOnline.Models.PedidoModel
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<fieldset>
+    <legend>PedidoModel</legend>
+
+    <div class="display-label">
+         <b>Nome:</b>
+    </div>
+    <div class="display-field">
+        @ViewBag.Cliente.nomeCliente)
+    </div>
+    <div class="display-label">
+        <b>Items do Pedido:</b>
+    </div>
+    <table>
+        <tr>
+            <th>
+                Massa
+            <th>
+                Recheio
+            </th>
+            <th>
+                Cobertura
+            </th>
+            <th>
+                Valor do Cupcake
+            </th>
+            <th>
+                Quantidade
+            </th>
+            <th>
+                Valor Total
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in ViewBag.Cupcakes)
+        {
+            <tr>
+                <td>@item.Massa.descrMassa</td>
+
+                <td>
+                    @item.Recheio.descrRecheio
+                </td>
+                <td>
+                    @item.Cobertura.descrCobertura
+                </td>
+                <td>
+                    @item.valorCupcake
+                </td>
+                <td>
+                    @item.qtdeItem
+                </td>
+                <td>
+                    @item.valorTotalCupcake
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <b>Detalhes do Endereço</b>
+
+    <fieldset style="margin-top: 20px">
+        <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+            Cep: 
+        </div>
+        <div class="display-field">
+            @ViewBag.Endereco.cepEndereco
+        </div>
+
+        <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+            Logradouro:
+        </div>
+        <div class="display-field">
+            @ViewBag.Endereco.logrEndereco
+        </div>
+
+        <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+            Número:
+        </div>
+        <div class="display-field">
+            @ViewBag.Endereco.numEndereco
+        </div>
+        <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+            Complemento:
+        </div>
+        <div class="display-field">
+            @ViewBag.Endereco.complEndereco
+        </div>
+
+        <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+            Bairro:
+        </div>
+        <div class="display-field">
+            @ViewBag.EnderecobairroEndereco
+            
+        </div>
+
+        <div class="display-label" style="font-weight:bolder; font-size:larger; margin-top:10px">
+            Cidade:
+        </div>
+        <div class="display-field">
+            @ViewBag.Endereco.cidEndereco
+        </div>
+    </fieldset>
+
+
+    <div class="display-label">
+      Status:
+    </div>
+    <div class="display-field">
+        @if (Model.statusPedido.Equals(false))
+        {
+            <div class="display-field">
+                Em Andamento
+            </div>
+        }
+        else
+        {
+            <div class="display-field">
+                Fechado
+            </div>
+        }
+
+    </div>
+
+    <div class="display-label">
+        Valor Total do Pedido:
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.vlrTotalPedido)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dataPedido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dataPedido)
+    </div>
+</fieldset>
+<p>
+
+    @Html.ActionLink("Voltar para Lista", "PedidosCliente")
+</p>

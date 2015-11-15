@@ -162,7 +162,8 @@ namespace CupcakeriaOnline.Controllers
                 cupcake_pedido.Cobertura = db.Coberturas.Find(cupcake_pedido.fk_idCobertura);
                 cupcake_pedido.Recheio = db.Recheios.Find(cupcake_pedido.fk_idRecheio);
                 cupcake_pedido.Pedido = (PedidoModel)TempData["pedido"];
-                cupcake_pedido.fk_idPedido = cupcake_pedido.Pedido.pk_idPedido;
+                PedidoModel pedido = (PedidoModel)TempData["pedido"];
+                cupcake_pedido.fk_idPedido = pedido.pk_idPedido;
                 Carrinho.Add(cupcake_pedido);
                 return RedirectToAction("Carrinho_Compras", new { id = cupcake_pedido.pk_idCupcake});
             }
@@ -170,9 +171,12 @@ namespace CupcakeriaOnline.Controllers
 
             double? valorTotalCupcake = valorTotal * cupcake_pedido.qtdeItem;
 
-            ViewBag.fk_idMassa = new SelectList(db.Massa, "pk_idMassa", "descrMassa", cupcake_pedido.fk_idMassa);
-            ViewBag.fk_idRecheio = new SelectList(db.Recheios, "pk_idRecheio", "descrRecheio", cupcake_pedido.fk_idRecheio);
-            ViewBag.fk_idCobertura = new SelectList(db.Coberturas, "pk_idCobertura", "descrCobertura", cupcake_pedido.fk_idCobertura);
+            //ViewBag.fk_idMassa = new SelectList(db.Massa, "pk_idMassa", "descrMassa", cupcake_pedido.fk_idMassa);
+            //ViewBag.fk_idRecheio = new SelectList(db.Recheios, "pk_idRecheio", "descrRecheio", cupcake_pedido.fk_idRecheio);
+            //ViewBag.fk_idCobertura = new SelectList(db.Coberturas, "pk_idCobertura", "descrCobertura", cupcake_pedido.fk_idCobertura);
+            ViewBag.Massa = massa;
+            ViewBag.Recheio = recheio;
+            ViewBag.Cobertura = cobertura;
             ViewBag.valorCupcake = Convert.ToString(valorTotal, CultureInfo.CreateSpecificCulture("pt-BR"));
             ViewBag.qtdeItem = cupcake_pedido.qtdeItem;
             ViewBag.valorTotalCupcake = Convert.ToString(valorTotalCupcake, CultureInfo.CreateSpecificCulture("pt-BR"));
@@ -197,13 +201,46 @@ namespace CupcakeriaOnline.Controllers
         public ActionResult Carrinho_Compras()
         {
 
-            if (Carrinho.Count() != 0 )
+            if (Carrinho.Count() > 0 )
             {
                 TempData["Cupcakes"] = Carrinho;
                 return RedirectToAction("PedidoConfirmar", "Pedido");
             }
             
 
+            return View();
+        }
+
+        public ActionResult InsereCupcake()
+        {
+            
+
+            foreach (var c in Carrinho)
+            {
+                c.Pedido = (PedidoModel)TempData["pedido"];
+                c.fk_idPedido = c.Pedido.pk_idPedido;
+                
+            
+            }
+            if (ModelState.IsValid)
+            {
+                foreach (var c in Carrinho)
+                {
+                    db.Massa.Attach(c.Massa);
+                    db.Recheios.Attach(c.Recheio);
+                    db.Coberturas.Attach(c.Cobertura);
+                    db.Pedidos.Attach(c.Pedido);
+                    db.Cupcake_Pedido.Add(c);
+                    db.SaveChanges();
+                    db.Entry(c.Massa).State = EntityState.Detached;
+                    db.Entry(c.Recheio).State = EntityState.Detached;
+                    db.Entry(c.Cobertura).State = EntityState.Detached;
+                    db.Entry(c.Pedido).State = EntityState.Detached;
+                    
+                }
+                Carrinho = new List<Cupcake_Pedido>();
+                return RedirectToAction("Index", "Pedido");
+            }
             return View();
         }
 
