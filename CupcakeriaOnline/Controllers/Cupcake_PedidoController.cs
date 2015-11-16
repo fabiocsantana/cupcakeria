@@ -239,7 +239,7 @@ namespace CupcakeriaOnline.Controllers
                     
                 }
                 Carrinho = new List<Cupcake_Pedido>();
-                return RedirectToAction("Index", "Pedido");
+                return RedirectToAction("PedidosCliente", "Pedido");
             }
             return View();
         }

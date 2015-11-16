@@ -18,6 +18,7 @@ namespace CupcakeriaOnline.Controllers
         //
         // GET: /Cobertura/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.getContext().Coberturas.ToList());
@@ -26,6 +27,7 @@ namespace CupcakeriaOnline.Controllers
         //
         // GET: /Cobertura/Details/5
 
+        [Authorize]
         public ActionResult Details(int id = 0)
         {
             CoberturaModel coberturamodel = db.Busca(id);
@@ -39,6 +41,7 @@ namespace CupcakeriaOnline.Controllers
         //
         // GET: /Cobertura/Create
 
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -64,6 +67,7 @@ namespace CupcakeriaOnline.Controllers
         //
         // GET: /Cobertura/Edit/5
 
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             CoberturaModel coberturamodel = db.Busca(id);

@@ -195,6 +195,7 @@ namespace CupcakeriaOnline.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
         public ActionResult IniciarPedido(PedidoModel pedido)
         {
             var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
