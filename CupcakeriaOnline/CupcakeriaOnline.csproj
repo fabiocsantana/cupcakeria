@@ -299,6 +299,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Documentos\ArquivoDeUpload2.TXT" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Documentos\EF_Data_Annotations.pdf" />
@@ -432,6 +433,7 @@
     <Content Include="Views\Pedido\PedidosCliente.cshtml" />
     <Content Include="Views\Pedido\PedidosAbertos.cshtml" />
     <Content Include="Views\Cobertura\UploadDeArquivo.cshtml" />
+    <Content Include="Views\Cobertura\CriarDoArquivo.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
