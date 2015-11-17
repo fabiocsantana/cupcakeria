@@ -1,1 +1,3 @@
-A senha da administracao padrao é: 000000
+- A senha de acesso padrão (para usuários e administrador) é: 000000
+
+- Se for preciso rodar os scripts de criação e inserção, respeitar as dependencias na ordem
