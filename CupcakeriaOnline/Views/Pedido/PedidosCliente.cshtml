@@ -4,55 +4,58 @@
     ViewBag.Title = "Seus Pedidos";
 }
 
-<h2>PedidosCliente</h2>
+<h2 class="site-title">Meus últimos pedidos</h2>
+
 @if (ViewBag.AndamentoPedido == true)
 {
     @Html.ActionLink("Continuar Pedido", "IniciarPedido")
 }
 else { 
-<p>
+<p style="font-weight:bolder; font-size: large;">
     @Html.ActionLink("Iniciar Novo Pedido", "IniciarPedido")
 </p>
     
 }
-<table>
-    <tr>
-        <th>
+<table style="border: 1px black solid;">
+    <tr style="border: 1px black solid;">
+        <th style="padding: 20px; text-align:center;">
             <b>Status</b>
         </th>
-        <th>
+        <th style="padding: 20px; text-align:center;">
             <b>Valor Total:</b>
         </th>
-        <th>
+        <th style="padding: 20px; text-align:center;">
             <b>Data do Pedido</b>
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        @if (item.statusPedido.Equals(false)) { 
-            <td>
-                Em Andamento
+    @foreach (var item in Model)
+    {
+        <tr style="border: 1px black solid;">
+            @if (item.statusPedido.Equals(false))
+            {
+                <td style="text-align:center">
+                    Em Andamento
+                </td>
+            }
+            else
+            {
+                <td style="text-align:center">
+                    Fechado
+                </td>
+            }
+            <td style="text-align:center">
+                R$ @Html.DisplayFor(modelItem => item.vlrTotalPedido)
             </td>
-        }
-        else
-        {
-            <td>
-               Fechado
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.dataPedido)
             </td>
-        }
-        <td>
-            @Html.DisplayFor(modelItem => item.vlrTotalPedido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dataPedido)
-        </td>
-        <td>
-            
-            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.pk_idPedido })
-        </td>
-    </tr>
-}
+            <td style="text-align:center">
+
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.pk_idPedido })
+            </td>
+        </tr>
+    }
 
 </table>

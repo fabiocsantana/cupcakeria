@@ -29,7 +29,7 @@ namespace CupcakeriaOnline.Repository
             : base("name=CadastroContext")
         {
 
-            Database.Connection.ConnectionString = @"<!-- INSERIR CONNECTION STRING >";
+            Database.Connection.ConnectionString = @"Data Source=ATIV-FABIO;Initial Catalog=db_cupcakeria;Integrated Security=True;MultipleActiveResultSets=True";
             Database.SetInitializer<CupcakeriaContext>(null);
 
         }

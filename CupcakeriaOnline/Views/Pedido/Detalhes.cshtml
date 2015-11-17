@@ -4,37 +4,36 @@
     ViewBag.Title = "Detalhes";
 }
 
-<h2>Detalhes</h2>
+<h2 class="site-title">Detalhes do pedido</h2>
 
-<fieldset>
-    <legend>PedidoModel</legend>
-
+<fieldset style="margin-top:20px">
     <div class="display-label">
-         <b>Nome:</b>
+        <h3 style="font-weight:bold;">Nome:</h3>
     </div>
     <div class="display-field">
         @ViewBag.Cliente.nomeCliente
     </div>
-    <div class="display-label">
-        <b>Items do Pedido:</b>
-    </div>
-    <table>
-        <tr>
-            <th>
+    <div class="display-label" style="margin-top:20px">
+        <h3 style="font-weight:bold;">Items do Pedido:</h3>
+</div>
+    <table style="border: 1px black solid;">
+        <tr style="border: 1px black solid">
+            <th style="padding: 20px; text-align:center;">
                 Massa
-            <th>
+            </th>
+            <th style="padding: 20px; text-align:center;">
                 Recheio
             </th>
-            <th>
+            <th style="padding: 20px; text-align:center;">
                 Cobertura
             </th>
-            <th>
+            <th style="padding: 20px; text-align:center;">
                 Valor do Cupcake
             </th>
-            <th>
+            <th style="padding: 20px; text-align:center;">
                 Quantidade
             </th>
-            <th>
+            <th style="padding: 20px; text-align:center;">
                 Valor Total
             </th>
             <th></th>
@@ -42,22 +41,22 @@
 
         @foreach (var item in ViewBag.Cupcakes)
         {
-            <tr>
-                <td>@item.Massa.descrMassa</td>
+            <tr style="border: 1px black solid">
+                <td style="text-align:center">@item.Massa.descrMassa</td>
 
-                <td>
+                <td style="text-align:center">
                     @item.Recheio.descrRecheio
                 </td>
-                <td>
+                <td style="text-align:center">
                     @item.Cobertura.descrCobertura
                 </td>
-                <td>
+                <td style="text-align:center">
                     @item.valorCupcake
                 </td>
-                <td>
+                <td style="text-align:center">
                     @item.qtdeItem
                 </td>
-                <td>
+                <td style="text-align:center">
                     @item.valorTotalCupcake
                 </td>
 
@@ -65,9 +64,9 @@
         }
 
     </table>
-    <div class="display-label">
-        <b>Endereço de Entrega:</b>
-    </div>
+    <div class="display-label" style="margin-top: 20px;">
+        <h3 style="font-weight:bold;">Endereço de Entrega:</h3>
+</div>
     <table style="border: 1px black solid;">
         <tr style="border: 1px black solid">
             <th style="padding: 20px; text-align:center;">
@@ -113,13 +112,11 @@
             </td>
             <th></th>
         </tr>
-        
-
     </table>
 
-    <div class="display-label">
-        <b>Status:</b>
-    </div>
+    <div class="display-label" style="margin-top:20px;">
+        <h3 style="font-weight:bold;">Status:</h3>
+</div>
     <div class="display-field">
         @if (Model.statusPedido.Equals(false))
         {
@@ -136,16 +133,18 @@
 
     </div>
 
-    <div class="display-label">
+<!--    <div class="display-label" style="margin-top:20px;">
         <b>Valor Total do Pedido:</b>
     </div>
+-->
     <div class="display-field">
-        <b>Data do Pedido:</b>
+        <h3 style="margin-top:20px;">Data do Pedido:</h3>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.dataPedido)
+<!--    <div class="display-label">
+        @Html.DisplayNameFor(model => model.dataPedido)
     </div>
+-->
     <div class="display-field">
         @Html.DisplayFor(model => model.dataPedido)
     </div>

@@ -4,55 +4,55 @@
     ViewBag.Title = "PedidoConfirmar";
 }
 
-<h2>PedidoConfirmar</h2>
+<h2 class="site-title">Confirmar Pedido</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>PedidoModel</legend>
-
+    <fieldset style="margin-top:20px">
         @Html.HiddenFor(model => model.pk_idPedido)
         @Html.HiddenFor(model => model.fk_idCliente)
         <div>
             <b>Nome do Cliente: </b>@Html.DisplayFor(model => model.Cliente.nomeCliente)
-        </div>    
+        </div>
 
-        <div class="editor-label">
+        <div class="editor-label" style="margin-top:20px">
             @Html.LabelFor(model => model.fk_idEndereco, "Endereço")
         </div>
-        
+
         <div class="editor-field">
             @Html.DropDownList("fk_idEndereco", String.Empty)
             @Html.ValidationMessageFor(model => model.fk_idEndereco)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.statusPedido)
-        </div>
+        <!--        <div class="editor-label" style="margin-top:20px">
+                    @Html.LabelFor(model => model.statusPedido)
+                </div>
+        -->
         <div class="editor-field">
             @Html.HiddenFor(model => model.statusPedido, new { @Value = false })
             @Html.ValidationMessageFor(model => model.statusPedido)
         </div>
 
-        <table>
-            <tr>
-                <th>
+        <table style="border: 1px black solid;">
+            <tr style="border: 1px black solid">
+                <th style="padding: 20px; text-align:center;">
                     Massa
-                <th>
+                </th>
+                <th style="padding: 20px; text-align:center;">
                     Recheio
                 </th>
-                <th>
+                <th style="padding: 20px; text-align:center;">
                     Cobertura
                 </th>
-                <th>
+                <th style="padding: 20px; text-align:center;">
                     Valor do Cupcake
                 </th>
-                <th>
+                <th style="padding: 20px; text-align:center;">
                     Quantidade
                 </th>
-                <th>
+                <th style="padding: 20px; text-align:center;">
                     Valor Total
                 </th>
                 <th></th>
@@ -60,45 +60,45 @@
 
             @foreach (var item in ViewBag.CupcakesDoPedido)
             {
-                <tr>
-                    <td>@item.Massa.descrMassa</td>
+                <tr style="border: 1px black solid">
+                    <td style="padding: 20px; text-align:center;">
+                        @item.Massa.descrMassa
+                    </td>
 
-                    <td>
+                    <td style="padding: 20px; text-align:center;">
                         @item.Recheio.descrRecheio
                     </td>
-                    <td>
+                    <td style="padding: 20px; text-align:center;">
                         @item.Cobertura.descrCobertura
                     </td>
-                    <td>
+                    <td style="padding: 20px; text-align:center;">
                         @item.valorCupcake
                     </td>
-                    <td>
+                    <td style="padding: 20px; text-align:center;">
                         @item.qtdeItem
                     </td>
-                    <td>
+                    <td style="padding: 20px; text-align:center;">
                         @item.valorTotalCupcake
                     </td>
-
                 </tr>
             }
-
         </table>
 
-        <div class="editor-label">
+        <div class="editor-label" style="margin-top:20px;">
             @Html.LabelFor(model => model.vlrTotalPedido)
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(model => model.vlrTotalPedido, new { @Value = ViewBag.total, @readonly = "true" })
-            
+
             @Html.ValidationMessageFor(model => model.vlrTotalPedido)
         </div>
 
 
-        <div class="editor-label">
+        <div class="editor-label" style="margin-top:20px;">
             @Html.LabelFor(model => model.dataPedido)
         </div>
         <div class="label-field">
-            @Html.TextBoxFor(model => model.dataPedido, new {@Value = System.DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") , @readonly = "readonly" })
+            @Html.TextBoxFor(model => model.dataPedido, new { @Value = System.DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"), @readonly = "readonly" })
             @Html.ValidationMessageFor(model => model.dataPedido)
         </div>
 

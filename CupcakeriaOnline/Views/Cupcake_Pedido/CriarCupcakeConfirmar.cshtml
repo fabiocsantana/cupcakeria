@@ -3,16 +3,14 @@
     ViewBag.Title = "CriarCupcakeConfirmar";
 }
 
-<h2>Confirmar Cupcake</h2>
+<h2 class="site-title">Confirmar Novo Cupcake</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Cupcake_Pedido</legend>
-
-        <div class="editor-label">
+        <div class="editor-label" style="margin-top:20px; font-weight:bold; font-size:medium">
             @Html.LabelFor(model => model.fk_idMassa, "Massa")
         </div>
         <div class="editor-field">
@@ -23,7 +21,7 @@
             @Html.ValidationMessageFor(model => model.fk_idMassa)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label" style="margin-top:20px; font-weight:bold; font-size:medium">
             @Html.LabelFor(model => model.fk_idRecheio, "Recheio")
         </div>
         <div class="editor-field">
@@ -34,7 +32,7 @@
             @Html.ValidationMessageFor(model => model.fk_idRecheio)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label" style="margin-top:20px; font-weight:bold; font-size:medium">
             @Html.LabelFor(model => model.fk_idCobertura, "Cobertura")
         </div>
         <div class="editor-field">
@@ -45,7 +43,7 @@
             @Html.ValidationMessageFor(model => model.fk_idCobertura)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label" style="margin-top:20px; font-weight:bold; font-size:medium">
             @Html.LabelFor(model => model.valorCupcake)
         </div>
         <div class="editor-field">
@@ -53,7 +51,7 @@
             @Html.ValidationMessageFor(model => model.valorCupcake)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label" style="margin-top:20px; font-weight:bold; font-size:medium">
             @Html.LabelFor(model => model.qtdeItem)
         </div>
         <div class="editor-field">
@@ -61,7 +59,7 @@
             @Html.ValidationMessageFor(model => model.qtdeItem)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label" style="margin-top:20px; font-weight:bold; font-size:medium">
             @Html.LabelFor(model => model.valorTotalCupcake)
         </div>
         <div class="editor-field">

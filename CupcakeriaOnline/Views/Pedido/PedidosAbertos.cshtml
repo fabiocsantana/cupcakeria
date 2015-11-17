@@ -5,20 +5,23 @@
     ViewBag.Title = "Pedidos em Aberto";
 }
 
-<h2>Pedidos Abertos</h2>
+<h2 class="site-title">Pedidos Abertos</h2>
 
 <p>
-    @Html.ActionLink("Todos os Pedidos", "Index")
+    <h3>
+        @Html.ActionLink("Todos os Pedidos", "Index")
+    </h3>
 </p>
-<table>
-    <tr>
-        <th>
+
+<table style="border: 1px black solid; margin-top:20px">
+    <tr style="border: 1px black solid">
+        <th style="padding: 20px; text-align:center;">
             <b>Status</b>
         </th>
-        <th>
+        <th style="padding: 20px; text-align:center;">
             <b>Valor Total:</b>
         </th>
-        <th>
+        <th style="padding: 20px; text-align:center;">
             <b>Data do Pedido</b>
         </th>
         <th></th>
@@ -26,22 +29,20 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
+        <tr style="border: 1px black solid">
+            <td style="padding: 20px; text-align:center;">
                 Em Andamento
             </td>
-            <td>
+            <td style="padding: 20px; text-align:center;">
                 @Html.DisplayFor(modelItem => item.vlrTotalPedido)
             </td>
-            <td>
+            <td style="padding: 20px; text-align:center;">
                 @Html.DisplayFor(modelItem => item.dataPedido)
             </td>
-            <td>
-
+            <td style="padding: 20px; text-align:center;">
                 @Html.ActionLink("Detalhes", "Detalhes", new { id = item.pk_idPedido })
                 @Html.ActionLink("Alterar Status", "AlterarStatus", new { id = item.pk_idPedido })
             </td>
         </tr>
     }
-
 </table>

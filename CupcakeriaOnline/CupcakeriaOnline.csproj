@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201511140137343_Atualizar.Designer.cs">
       <DependentUpon>201511140137343_Atualizar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511151645355_denovo5.cs" />
+    <Compile Include="Migrations\201511151645355_denovo5.Designer.cs">
+      <DependentUpon>201511151645355_denovo5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AdministracaoModel.cs" />
@@ -234,12 +238,9 @@
     <Compile Include="Repository\Item_PedidoRepository.cs" />
     <Compile Include="Repository\PedidoRepository.cs" />
     <Compile Include="Repository\RecheioRepository.cs" />
+    <Compile Include="VariavelGlobal.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\mainDb.mdf" />
-    <Content Include="App_Data\mainDb_log.ldf">
-      <DependentUpon>mainDb.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -299,6 +300,7 @@
     <Content Include="Documentos\EF_Data_Annotations.pdf" />
     <Content Include="Documentos\modelo.xlsx" />
     <Content Include="Documentos\Projeto2015_02.pdf" />
+    <Content Include="Documentos\Exemplo de Views.docx" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\logo.png" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -409,8 +411,16 @@
     <Content Include="Views\Cliente\Logout.cshtml" />
     <Content Include="Views\Cliente\Login.cshtml" />
     <Content Include="Views\Endereco\Importar.cshtml" />
+    <Content Include="Views\Cupcake_Pedido\InsereCupcake.cshtml" />
+    <Content Include="Views\Pedido\_PedidoConfirmar.cshtml" />
+    <Content Include="Views\Pedido\Detalhes.cshtml" />
+    <Content Include="Views\Pedido\PedidoConfirmar.cshtml" />
+    <Content Include="Views\Pedido\PedidosCliente.cshtml" />
+    <Content Include="Views\Pedido\PedidosAbertos.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -441,6 +451,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511140137343_Atualizar.resx">
       <DependentUpon>201511140137343_Atualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511151645355_denovo5.resx">
+      <DependentUpon>201511151645355_denovo5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

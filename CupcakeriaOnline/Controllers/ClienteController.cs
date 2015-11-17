@@ -165,11 +165,11 @@ namespace CupcakeriaOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                var emailExistente = db.Cliente.FirstOrDefault(c => c.emailCliente == cliente.emailCliente);
-
-                if (emailExistente == null)
+                using (var dbContext = new CupcakeriaContext())
                 {
-                    using (var dbContext = new CupcakeriaContext())
+                    var emailExistente = db.Cliente.FirstOrDefault(c => c.emailCliente == cliente.emailCliente);
+
+                    if (emailExistente == null)
                     {
                         var crypto = new SimpleCrypto.PBKDF2();
 
@@ -189,11 +189,12 @@ namespace CupcakeriaOnline.Controllers
 
                         return RedirectToAction("Index", "Home");
                     }
+                    else
+                    {
+                        ModelState.AddModelError("", "Email já cadastrado");
+                    }
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Email já cadastrado");
-                }
+
             }
             else
             {
