@@ -19,7 +19,8 @@ namespace CupcakeriaOnline.Controllers
     {
         private CupcakeriaContext db = new CupcakeriaContext();
         public static PedidoModel Pedido;
-        public static List<Cupcake_Pedido> Cupcakes;
+        public static VariavelGlobal a = new VariavelGlobal();
+        
 
         //
         // GET: /Pedido/
@@ -29,13 +30,25 @@ namespace CupcakeriaOnline.Controllers
             var pedidos = db.Pedidos.Include(p => p.Cliente);
             return View(pedidos.ToList());
         }
-
+        [Authorize]
         public ActionResult PedidosCliente()
         {
             var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
             var pedidos = db.Pedidos.Where(p => p.fk_idCliente == cliente.pk_idCliente);
-            
-            
+            bool pedidoAberto = false;
+            if (a.getCupcakes() != null) { 
+                if (a.getCupcakes().Count > 0 )
+                {
+                    pedidoAberto = true;
+            }
+            }
+
+            ViewBag.AndamentoPedido = pedidoAberto;
+
+            //Cupcake_PedidoController a = new Cupcake_PedidoController();
+
+
+            //pedidos = pedidos.Reverse();
             return View(pedidos.ToList());
         }
 
@@ -69,8 +82,8 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult PedidosAbertos()
         {
-            var pedidos = db.Pedidos.Where(p => p.statusPedido.Equals(false));
-            return View(pedidos);
+            var pedidos = db.Pedidos.Where(p => p.statusPedido == false);
+            return View(pedidos.ToList());
         }
 
         public ActionResult AlterarStatus(int id = 0)
@@ -143,6 +156,7 @@ namespace CupcakeriaOnline.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+            
             PedidoModel pedidomodel = db.Pedidos.Find(id);
             if (pedidomodel == null)
             {
@@ -217,7 +231,7 @@ namespace CupcakeriaOnline.Controllers
         public ActionResult PedidoConfirmar()
         {
             
-            Cupcakes = (List<Cupcake_Pedido>)TempData["Cupcakes"];
+            List<Cupcake_Pedido> Cupcakes = (List<Cupcake_Pedido>)TempData["Cupcakes"];
             PedidoModel pedidoAFechar = Cupcakes.First().Pedido;
             var cliente = db.Cliente.FirstOrDefault(c => c.emailCliente == User.Identity.Name);
             ViewBag.fk_idEndereco = new SelectList(db.Endereco.Where(c => c.fk_idCliente.Equals(cliente.pk_idCliente)), "pk_idEndereco", "logrEndereco", pedidoAFechar.fk_idEndereco);

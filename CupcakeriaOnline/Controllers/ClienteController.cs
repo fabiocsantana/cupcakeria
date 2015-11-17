@@ -139,6 +139,8 @@ namespace CupcakeriaOnline.Controllers
         [HttpPost]
         public ActionResult Login(Models.ClienteModel cliente)
         {
+                VariavelGlobal a = new VariavelGlobal();
+                a.Cria();
                 if (EhValido(cliente.emailCliente, cliente.loginUsuSenha))
                 {
                     FormsAuthentication.SetAuthCookie(cliente.emailCliente, false);
@@ -203,6 +205,8 @@ namespace CupcakeriaOnline.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            VariavelGlobal a = new VariavelGlobal();
+            a.Limpa();
 
             return RedirectToAction("Index", "Home");
         }

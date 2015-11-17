@@ -15,6 +15,7 @@ namespace CupcakeriaOnline.Controllers
     {
         private CupcakeriaContext db = new CupcakeriaContext();
         public static List<Cupcake_Pedido> Carrinho = new List<Cupcake_Pedido>();
+        private static VariavelGlobal a = new VariavelGlobal();
 
 
         //
@@ -62,7 +63,8 @@ namespace CupcakeriaOnline.Controllers
                 cupcake_pedido.Massa = db.Massa.Find(cupcake_pedido.fk_idMassa);
                 cupcake_pedido.Cobertura = db.Coberturas.Find(cupcake_pedido.fk_idCobertura);
                 cupcake_pedido.Recheio = db.Recheios.Find(cupcake_pedido.fk_idRecheio);
-                Carrinho.Add(cupcake_pedido);
+                
+                //Carrinho.Add(cupcake_pedido);
                 //db.SaveChanges();
                 return RedirectToAction("Carrinho");
             }
@@ -164,7 +166,8 @@ namespace CupcakeriaOnline.Controllers
                 cupcake_pedido.Pedido = (PedidoModel)TempData["pedido"];
                 PedidoModel pedido = (PedidoModel)TempData["pedido"];
                 cupcake_pedido.fk_idPedido = pedido.pk_idPedido;
-                Carrinho.Add(cupcake_pedido);
+                a.Adiciona(cupcake_pedido);
+                //Carrinho.Add(cupcake_pedido);
                 return RedirectToAction("Carrinho_Compras", new { id = cupcake_pedido.pk_idCupcake});
             }
             double? valorTotal = massa.valorUnitMassa + cobertura.valorUnitCobertura + recheio.valorUnitRecheio;
@@ -186,9 +189,13 @@ namespace CupcakeriaOnline.Controllers
         public ActionResult Carrinho_Compras(int id)
         {
             //var cupcake_pedido = db.Cupcake_Pedido.Include(c => c.Massa).Include(c => c.Recheio).Include(c => c.Cobertura);
-            ViewBag.cupcakes = Carrinho;
+
+            List<Cupcake_Pedido> cupcakes = a.getCupcakes();
+
+
+            ViewBag.cupcakes = cupcakes;
             double? total= 0;
-            foreach (var item in Carrinho)
+            foreach (var item in a.getCupcakes())
             {
                 total += item.valorTotalCupcake;
             }
@@ -200,10 +207,12 @@ namespace CupcakeriaOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Carrinho_Compras()
         {
+            List<Cupcake_Pedido> cupcakes = a.getCupcakes();
 
-            if (Carrinho.Count() > 0 )
+            if (a.getCupcakes().Count() > 0 )
             {
-                TempData["Cupcakes"] = Carrinho;
+
+                TempData["Cupcakes"] = cupcakes;
                 return RedirectToAction("PedidoConfirmar", "Pedido");
             }
             
@@ -215,7 +224,7 @@ namespace CupcakeriaOnline.Controllers
         {
             
 
-            foreach (var c in Carrinho)
+            foreach (var c in a.getCupcakes())
             {
                 c.Pedido = (PedidoModel)TempData["pedido"];
                 c.fk_idPedido = c.Pedido.pk_idPedido;
@@ -224,7 +233,7 @@ namespace CupcakeriaOnline.Controllers
             }
             if (ModelState.IsValid)
             {
-                foreach (var c in Carrinho)
+                foreach (var c in a.getCupcakes())
                 {
                     db.Massa.Attach(c.Massa);
                     db.Recheios.Attach(c.Recheio);
@@ -238,7 +247,7 @@ namespace CupcakeriaOnline.Controllers
                     db.Entry(c.Pedido).State = EntityState.Detached;
                     
                 }
-                Carrinho = new List<Cupcake_Pedido>();
+                a.Limpa();
                 return RedirectToAction("PedidosCliente", "Pedido");
             }
             return View();

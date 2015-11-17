@@ -4,7 +4,7 @@
     ViewBag.Title = "Pedidos";
 }
 
-<h2>PedidosCliente</h2>
+<h2>Pedidos</h2>
 
 <p>
     @Html.ActionLink("Pedidos Em Aberto", "PedidosAbertos")
@@ -46,7 +46,7 @@
             </td>
             <td>
 
-                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.pk_idPedido })|
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.pk_idPedido })
                 @Html.ActionLink("Alterar Status", "AlterarStatus", new { id = item.pk_idPedido })
                 
             </td>

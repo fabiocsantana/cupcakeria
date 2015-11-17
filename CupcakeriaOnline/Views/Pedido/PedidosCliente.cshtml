@@ -5,10 +5,16 @@
 }
 
 <h2>PedidosCliente</h2>
-
+@if (ViewBag.AndamentoPedido == true)
+{
+    @Html.ActionLink("Continuar Pedido", "IniciarPedido")
+}
+else { 
 <p>
     @Html.ActionLink("Iniciar Novo Pedido", "IniciarPedido")
 </p>
+    
+}
 <table>
     <tr>
         <th>
