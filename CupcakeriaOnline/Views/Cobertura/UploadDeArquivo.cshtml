@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "UploadDeArquivo";
+}
+
+<h2>UploadDeArquivo</h2>
+
+<form action="/Cobertura/UploadDeArquivo" method="post" enctype="multipart/form-data">
+
+    <label for="arquivo">Arquivo:</label>
+    <input type="file" name="arquivo" id="arquivo" />
+
+    <input type="submit" value="Upload" />
+</form>

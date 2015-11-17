@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using CupcakeriaOnline.Models;
 using CupcakeriaOnline.Repository;
 using System.IO;
+using System.Globalization;
 
 namespace CupcakeriaOnline.Controllers
 {
@@ -120,11 +121,70 @@ namespace CupcakeriaOnline.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult UploadDeArquivo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UploadDeArquivo(HttpPostedFileBase arquivo)
+        {
+            arquivo = Request.Files["arquivo"];
+            string result = new StreamReader(arquivo.InputStream).ReadToEnd();
+            if (result.Length>0)
+            {
+
+                //string result = new StreamReader(arquivo.InputStream).ReadToEnd();
+                List<string> resultadoArquivo = result.Split(';').ToList<string>();
+                resultadoArquivo.Reverse();
+
+                CoberturaModel cobertura = new CoberturaModel();
+
+                cobertura.descrCobertura = resultadoArquivo[2];
+                cobertura.valorUnitCobertura = Convert.ToDouble(resultadoArquivo[1], CultureInfo.CreateSpecificCulture("pt-BR"));
+                cobertura.dispCobertura = Convert.ToBoolean(resultadoArquivo[0]);
+                //ViewBag.Cobertura = cobertura;
+                TempData["cobertura"] = cobertura;
+                return RedirectToAction("CriarDoArquivo");
+            }
+
+            return View();
+        }
+
+        public ActionResult CriarDoArquivo()
+        {
+            CoberturaModel cob = (CoberturaModel)TempData["cobertura"];
+            ViewBag.descricao = cob.descrCobertura;
+            ViewBag.valor = Convert.ToString(cob.valorUnitCobertura, CultureInfo.CreateSpecificCulture("pt-BR"));
+            ViewBag.disp = cob.dispCobertura;
+
+            @ViewBag.Message = "Cadastre a Cobertura";
+            
+            return View();
+        
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CriarDoArquivo(CoberturaModel cobertura)
+        {
+            if (ModelState.IsValid)
+            {
+
+                db.Adiciona(cobertura);
+                db.Salva();
+                return RedirectToAction("Index");
+            }
+            return View(cobertura);
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.getContext().Dispose();
             base.Dispose(disposing);
         }
+
+
 
         /*[HttpPost]
         public ActionResult Upload()
