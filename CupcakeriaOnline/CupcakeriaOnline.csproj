@@ -303,6 +303,15 @@
     <Content Include="Documentos\Exemplo de Views.docx" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\logo.png" />
+    <Content Include="Scripts\Banco de dados\Carga\dbo.Administrador.data.sql" />
+    <Content Include="Scripts\Banco de dados\Carga\dbo.Cliente.data.sql" />
+    <Content Include="Scripts\Banco de dados\Carga\dbo.Cobertura.data.sql" />
+    <Content Include="Scripts\Banco de dados\Carga\dbo.Cupcake_Pedido.data.sql" />
+    <Content Include="Scripts\Banco de dados\Carga\dbo.Endereco.data.sql" />
+    <Content Include="Scripts\Banco de dados\Carga\dbo.Massa.data.sql" />
+    <Content Include="Scripts\Banco de dados\Carga\dbo.Pedido.data.sql" />
+    <Content Include="Scripts\Banco de dados\Carga\dbo.Recheio.data.sql" />
+    <Content Include="Scripts\Banco de dados\Criacao\Cria_banco.sql" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -417,6 +426,7 @@
     <Content Include="Views\Pedido\PedidoConfirmar.cshtml" />
     <Content Include="Views\Pedido\PedidosCliente.cshtml" />
     <Content Include="Views\Pedido\PedidosAbertos.cshtml" />
+    <Content Include="Views\Cobertura\UploadDeArquivo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
