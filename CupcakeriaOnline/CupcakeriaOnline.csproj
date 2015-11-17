@@ -241,6 +241,10 @@
     <Compile Include="VariavelGlobal.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Cupcakeria_DB.mdf" />
+    <Content Include="App_Data\Cupcakeria_DB_log.ldf">
+      <DependentUpon>Cupcakeria_DB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -312,6 +316,7 @@
     <Content Include="Scripts\Banco de dados\Carga\dbo.Pedido.data.sql" />
     <Content Include="Scripts\Banco de dados\Carga\dbo.Recheio.data.sql" />
     <Content Include="Scripts\Banco de dados\Criacao\Cria_banco.sql" />
+    <Content Include="Scripts\Banco de dados\LEIA_ME.txt" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -428,9 +433,7 @@
     <Content Include="Views\Pedido\PedidosAbertos.cshtml" />
     <Content Include="Views\Cobertura\UploadDeArquivo.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
